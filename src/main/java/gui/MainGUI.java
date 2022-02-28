@@ -45,8 +45,8 @@ public class MainGUI extends JFrame {
 	private JRadioButton rdbtnNewRadioButton_2;
 	private JPanel panel;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
+	private JButton btnRegister;
+	private JButton btnLogin;
 	
 	/**
 	 * This is the default constructor
@@ -98,8 +98,8 @@ public class MainGUI extends JFrame {
 			jContentPane.add(getBoton3());
 			jContentPane.add(getBoton2());
 			jContentPane.add(getPanel());
-			jContentPane.add(getBtnNewButton());
-			jContentPane.add(getBtnNewButton_1());
+			jContentPane.add(getBtnRegister());
+			jContentPane.add(getBtnLogin());
 		}
 		return jContentPane;
 	}
@@ -215,29 +215,31 @@ public class MainGUI extends JFrame {
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainTitle"));
 	}
 	
-	private JButton getBtnNewButton() {
-		if (btnNewButton == null) {
-			btnNewButton = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
-			btnNewButton.addActionListener(new ActionListener() {
+	private JButton getBtnRegister() {
+		if (btnRegister == null) {
+			btnRegister = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
+			btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+					JFrame a = new Register();
+					a.setVisible(true);
 				}
 			});
-			btnNewButton.setBounds(40, 22, 85, 21);
+			btnRegister.setBounds(40, 22, 85, 21);
 		}
-		return btnNewButton;
+		return btnRegister;
 	}
-	private JButton getBtnNewButton_1() {
-		if (btnNewButton_1 == null) {
-			btnNewButton_1 = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
-			btnNewButton_1.addActionListener(new ActionListener() {
+	private JButton getBtnLogin() {
+		if (btnLogin == null) {
+			btnLogin = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
+			btnLogin.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+					JFrame a = new Login();
+					a.setVisible(true);
 				}
 			});
-			btnNewButton_1.setBounds(340, 22, 85, 21);
+			btnLogin.setBounds(340, 22, 85, 21);
 		}
-		return btnNewButton_1;
+		return btnLogin;
 	}
 } // @jve:decl-index=0:visual-constraint="0,0"
 
