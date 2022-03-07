@@ -16,6 +16,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Register extends JFrame{
 	/**
@@ -87,6 +89,13 @@ public class Register extends JFrame{
 		panelPrincipal.add(lblUsername);
 		
 		btnSingIn = new JButton("SING IN");
+		btnSingIn.setEnabled(false);
+		
+		btnSingIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Check_Remenber_Me.isEnabled()) btnSingIn.setEnabled(true);
+			}
+		});
 		btnSingIn.setFont(new Font("Rockwell", Font.PLAIN, 17));
 		btnSingIn.setBackground(SystemColor.windowBorder);
 		btnSingIn.setBounds(360, 520, 113, 36);
