@@ -45,12 +45,13 @@ public class Register extends JFrame{
 	private JTextField textField_3;
 	
 	//Etiquetas
-	private JLabel lblDate, lblGender, lblCurrentAccount,lblYear ,lblMonth, lblDay, lblRegister, lblPassword, lblUsername;
+	private JLabel lblDate, lblGender, lblCurrentAccount,lblYear ,lblMonth, lblDay, lblRegister, lblUsername, lblPassword, lblPassword_1;
 	
 	//Botones
 	private JButton btnSingIn, btnBack;
 	private JRadioButton rdbtnMale, rdbtnFemale, rdbtnOthers ;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JPasswordField passwordField_1;
 	
 	
 	
@@ -79,24 +80,39 @@ public class Register extends JFrame{
 		
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(88, 225, 294, 36);
+		passwordField.setBounds(88, 152, 294, 36);
 		panelPrincipal.add(passwordField);
 		
 		lblPassword = new JLabel("Password:");
 		lblPassword.setFont(new Font("Rockwell", Font.PLAIN, 16));
-		lblPassword.setBounds(46, 193, 279, 21);
+		lblPassword.setBounds(46, 132, 279, 21);
 		panelPrincipal.add(lblPassword);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(88, 228, 294, 36);
+		panelPrincipal.add(passwordField_1);
+		
+		lblPassword_1 = new JLabel("Password:");
+		lblPassword_1.setFont(new Font("Rockwell", Font.PLAIN, 16));
+		lblPassword_1.setBounds(46, 208, 279, 21);
+		panelPrincipal.add(lblPassword_1);
 		
 		lblUsername = new JLabel("Username:");
 		lblUsername.setFont(new Font("Rockwell", Font.PLAIN, 16));
-		lblUsername.setBounds(46, 90, 294, 21);
+		lblUsername.setBounds(46, 56, 294, 21);
 		panelPrincipal.add(lblUsername);
 		
 		btnSingIn = new JButton("SING IN");
 		btnSingIn.setEnabled(false);
+		//if (Check_Remenber_Me.isSelected()) btnSingIn.setEnabled(true);
+		
+		
 		btnSingIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (!Check_Remenber_Me.isSelected()) btnSingIn.setEnabled(true);
+				
+				
+				
+				
 			}
 		});
 		btnSingIn.setFont(new Font("Rockwell", Font.PLAIN, 17));
@@ -105,7 +121,7 @@ public class Register extends JFrame{
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(88, 121, 294, 36);
+		textField.setBounds(88, 76, 294, 36);
 		panelPrincipal.add(textField);
 		
 		btnBack = new JButton("\u2190");
@@ -201,6 +217,8 @@ public class Register extends JFrame{
 		textField_3.setColumns(10);
 		textField_3.setBounds(88, 438, 294, 36);
 		panelPrincipal.add(textField_3);
+		
+		
 		
 		this.setSize(550, 710);
 	}
