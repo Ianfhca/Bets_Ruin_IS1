@@ -23,22 +23,22 @@ public class User {
     @Embedded
     private Role type;
 
-    public User(UserName name, UserPassword password) {
+    public User(String name, String password) throws Exception {
         this.id = new UserId();
-        this.name = name;
-        this.password = password;
+        this.name = new UserName(name);
+        this.password = new UserPassword(password);
         this.type = new Role();
     }
-    public User(UserId id, UserName name, UserPassword password){
-        this.id=id;
-        this.name=name;
-        this.password=password;
+    public User(String id, String name, String password) throws Exception {
+        this.id=new UserId(id);
+        this.name=new UserName(name);
+        this.password=new UserPassword(password);
         this.type= new Role();
     }
-    public User(Role role, UserId id, UserName name, UserPassword password){
-        this.id=id;
-        this.name=name;
-        this.password=password;
+    public User(Role role, String id, String name, String password) throws Exception {
+        this.id=new UserId(id);
+        this.name=new UserName(name);
+        this.password=new UserPassword(password);
         this.type = role;
     }
 
