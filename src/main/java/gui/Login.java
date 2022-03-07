@@ -2,40 +2,70 @@ package gui;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.Font;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
 
 public class Login extends JFrame {
 	public Login() {
+		setTitle("Login Box");
+		setBackground(SystemColor.controlShadow);
+		getContentPane().setBackground(new Color(65, 105, 225));
 		getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("LOGI N");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(350, 374, 99, 37);
-		getContentPane().add(btnNewButton);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(140, 194, 220, 37);
-		getContentPane().add(passwordField);
-		
-		JLabel lblNewLabel = new JLabel("Password");
-		lblNewLabel.setBounds(140, 167, 220, 23);
+		JLabel lblNewLabel = new JLabel("LOG IN");
+		lblNewLabel.setBackground(Color.WHITE);
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Rockwell", Font.BOLD, 34));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(10, 10, 489, 64);
 		getContentPane().add(lblNewLabel);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Remenber me");
-		chckbxNewCheckBox.setBounds(113, 382, 93, 21);
-		getContentPane().add(chckbxNewCheckBox);
+		JPanel panelPrincipal = new JPanel();
+		panelPrincipal.setBackground(SystemColor.menu);
+		panelPrincipal.setBorder(new BevelBorder(BevelBorder.RAISED, SystemColor.textHighlight, null, null, null));
+		panelPrincipal.setBounds(10, 84, 516, 373);
+		getContentPane().add(panelPrincipal);
+		panelPrincipal.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Username");
-		lblNewLabel_1.setBounds(140, 76, 220, 23);
-		getContentPane().add(lblNewLabel_1);
+		JCheckBox Check_Remenber_Me = new JCheckBox("Remenber me");
+		Check_Remenber_Me.setFont(new Font("Rockwell", Font.PLAIN, 15));
+		Check_Remenber_Me.setBounds(88, 319, 183, 21);
+		panelPrincipal.add(Check_Remenber_Me);
 		
-		textField = new JTextField();
-		textField.setText("\uD83D\uDC68");
-		textField.setBounds(140, 96, 220, 37);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(88, 225, 340, 36);
+		panelPrincipal.add(passwordField);
+		
+		JLabel Label_Password = new JLabel("Password");
+		Label_Password.setFont(new Font("Rockwell", Font.PLAIN, 16));
+		Label_Password.setBounds(88, 194, 279, 21);
+		panelPrincipal.add(Label_Password);
+		
+		JLabel Label_Username = new JLabel("Username");
+		Label_Username.setFont(new Font("Rockwell", Font.PLAIN, 16));
+		Label_Username.setBounds(88, 90, 294, 21);
+		panelPrincipal.add(Label_Username);
+		
+		JButton btnLogin = new JButton("LOG IN");
+		btnLogin.setBackground(SystemColor.windowBorder);
+		btnLogin.setFont(new Font("Rockwell", Font.PLAIN, 17));
+		btnLogin.setBounds(360, 310, 113, 36);
+		panelPrincipal.add(btnLogin);
+		
+		textUser = new JTextField();
+		textUser.setBounds(88, 121, 340, 36);
+		textUser.setColumns(10);
+		panelPrincipal.add(textUser);
+		
+		JButton btnNewButton = new JButton("\u2190");
+		btnNewButton.setBackground(SystemColor.textInactiveText);
+		btnNewButton.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
+		btnNewButton.setBounds(10, 10, 67, 64);
+		panelPrincipal.add(btnNewButton);
 		
 	}// hol
 
@@ -44,5 +74,5 @@ public class Login extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPasswordField passwordField;
-	private JTextField textField;
+	private JTextField textUser;
 }
