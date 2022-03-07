@@ -19,7 +19,7 @@ public class Login extends JFrame {
 	private JCheckBox Check_Remenber_Me;
 	
 	//JButton
-	private JButton btnLogin, btnNewButton;
+	private JButton btnLogin, btnBack;
 	
 	//Etiquetas
 	private JLabel lblLOGIN, Label_Password, Label_Username;
@@ -31,7 +31,6 @@ public class Login extends JFrame {
 		getContentPane().setLayout(null);
 		
 		lblLOGIN = new JLabel("LOG IN");
-		lblLOGIN.setBackground(Color.WHITE);
 		lblLOGIN.setForeground(new Color(0, 0, 0));
 		lblLOGIN.setFont(new Font("Rockwell", Font.BOLD, 34));
 		lblLOGIN.setHorizontalAlignment(SwingConstants.CENTER);
@@ -65,7 +64,6 @@ public class Login extends JFrame {
 		panelPrincipal.add(Label_Username);
 		
 		btnLogin = new JButton("LOG IN");
-		btnLogin.setBackground(SystemColor.windowBorder);
 		btnLogin.setFont(new Font("Rockwell", Font.PLAIN, 17));
 		btnLogin.setBounds(360, 310, 113, 36);
 		panelPrincipal.add(btnLogin);
@@ -75,12 +73,13 @@ public class Login extends JFrame {
 		textUser.setColumns(10);
 		panelPrincipal.add(textUser);
 		
-		btnNewButton = new JButton("\u2190");
-		btnNewButton.setBackground(SystemColor.textInactiveText);
-		btnNewButton.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
-		btnNewButton.setBounds(10, 10, 67, 64);
-		panelPrincipal.add(btnNewButton);
+		btnBack = new JButton("\u2190");
+		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
+		btnBack.setBounds(10, 10, 84, 44);
+		panelPrincipal.add(btnBack);
+	
 		
+		this.setSize(550, 500);
 	}
 
 	/**
@@ -89,4 +88,5 @@ public class Login extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPasswordField passwordField;
 	private JTextField textUser;
+	
 }

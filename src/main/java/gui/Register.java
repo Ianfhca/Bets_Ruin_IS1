@@ -77,6 +77,7 @@ public class Register extends JFrame{
 		Check_Remenber_Me.setBounds(88, 529, 183, 21);
 		panelPrincipal.add(Check_Remenber_Me);
 		
+		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(88, 225, 294, 36);
 		panelPrincipal.add(passwordField);
@@ -93,14 +94,12 @@ public class Register extends JFrame{
 		
 		btnSingIn = new JButton("SING IN");
 		btnSingIn.setEnabled(false);
-		
 		btnSingIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (Check_Remenber_Me.isEnabled()) btnSingIn.setEnabled(true);
+				if (!Check_Remenber_Me.isSelected()) btnSingIn.setEnabled(true);
 			}
 		});
 		btnSingIn.setFont(new Font("Rockwell", Font.PLAIN, 17));
-		btnSingIn.setBackground(SystemColor.windowBorder);
 		btnSingIn.setBounds(360, 520, 113, 36);
 		panelPrincipal.add(btnSingIn);
 		
@@ -111,8 +110,7 @@ public class Register extends JFrame{
 		
 		btnBack = new JButton("\u2190");
 		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
-		btnBack.setBackground(SystemColor.textInactiveText);
-		btnBack.setBounds(10, 10, 67, 64);
+		btnBack.setBounds(10, 10, 69, 36);
 		panelPrincipal.add(btnBack);
 		
 		lblYear = new JLabel("Year:");
@@ -198,5 +196,6 @@ public class Register extends JFrame{
 		textField_3.setBounds(88, 438, 294, 36);
 		panelPrincipal.add(textField_3);
 		
+		this.setSize(550, 710);
 	}
 }
