@@ -27,7 +27,7 @@ public class Login extends JFrame {
 	public Login() {
 		setTitle("Login Box");
 		setBackground(SystemColor.controlShadow);
-		getContentPane().setBackground(new Color(65, 105, 225));
+		getContentPane().setBackground(new Color(255, 204, 255));
 		getContentPane().setLayout(null);
 		
 		lblLOGIN = new JLabel("LOG IN");
@@ -74,6 +74,12 @@ public class Login extends JFrame {
 		panelPrincipal.add(textUser);
 		
 		btnBack = new JButton("\u2190");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame a = new MainGUI();
+				a.setVisible(true);
+			}
+		});
 		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
 		btnBack.setBounds(10, 10, 84, 44);
 		panelPrincipal.add(btnBack);

@@ -159,3 +159,26 @@ New type java.util.Vector<domain.Question>
 [2022-03-07 22:44:30 #7 type.registry] 
 New type java.util.Vector<java.lang.Object>
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-07 22:51:37 #1 store] 
+Database 'D:\Aplicaciones\Eclipse\Repositorios De Trabajo\21-22\Bets-21\src\main\resources\bets.temp' is opened by 13896@Portatil
+
+[2022-03-07 22:51:37 #2 type.registry] 
+New type domain.Question
+
+[2022-03-07 22:51:37 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-07 22:51:37 #4 type.registry] 
+New type domain.Event
+
+[2022-03-07 22:51:37 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-07 22:51:37 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-07 22:51:37 #7 type.registry] 
+New type java.util.Vector<java.lang.Object>
+

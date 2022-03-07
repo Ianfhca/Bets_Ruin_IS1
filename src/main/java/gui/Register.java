@@ -109,6 +109,12 @@ public class Register extends JFrame{
 		panelPrincipal.add(textField);
 		
 		btnBack = new JButton("\u2190");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame a = new MainGUI();
+				a.setVisible(true);
+			}
+		});
 		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
 		btnBack.setBounds(10, 10, 69, 36);
 		panelPrincipal.add(btnBack);
