@@ -1,10 +1,10 @@
 package domain;
 
-import modules.UserAccess.domain.Users.Permission.Permission;
-import modules.UserAccess.domain.Users.ValueObjects.Role;
-import modules.UserAccess.domain.Users.ValueObjects.UserId;
-import modules.UserAccess.domain.Users.ValueObjects.UserName;
-import modules.UserAccess.domain.Users.ValueObjects.UserPassword;
+import domain.Permission.Permission;
+import domain.ValueObjects.Role;
+import domain.ValueObjects.UserId;
+import domain.ValueObjects.UserName;
+import domain.ValueObjects.UserPassword;
 import org.glassfish.ha.store.annotations.Attribute;
 
 import javax.persistence.*;

@@ -1,7 +1,7 @@
 package domain.ValueObjects;
 
 
-import modules.UserAccess.domain.Users.Permission.Permission;
+import domain.Permission.Permission;
 
 import javax.persistence.Embeddable;
 import java.util.ArrayList;
