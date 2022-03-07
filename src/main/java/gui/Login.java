@@ -24,12 +24,6 @@ public class Login extends JFrame {
 	//Etiquetas
 	private JLabel lblLOGIN, Label_Password, Label_Username;
 	
-	
-	
-	
-	
-	
-	
 	public Login() {
 		setTitle("Login Box");
 		setBackground(SystemColor.controlShadow);
@@ -46,7 +40,7 @@ public class Login extends JFrame {
 		
 		panelPrincipal = new JPanel();
 		panelPrincipal.setBackground(SystemColor.menu);
-		panelPrincipal.setBorder(new BevelBorder(BevelBorder.RAISED, SystemColor.textHighlight, null, null, null));
+		panelPrincipal.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panelPrincipal.setBounds(10, 84, 516, 373);
 		getContentPane().add(panelPrincipal);
 		panelPrincipal.setLayout(null);

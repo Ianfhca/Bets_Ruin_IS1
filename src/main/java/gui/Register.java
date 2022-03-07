@@ -18,6 +18,9 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EtchedBorder;
 
 public class Register extends JFrame{
 	/**
@@ -64,7 +67,7 @@ public class Register extends JFrame{
 		
 		panelPrincipal = new JPanel();
 		panelPrincipal.setLayout(null);
-		panelPrincipal.setBorder(new BevelBorder(BevelBorder.RAISED, SystemColor.textHighlight, null, null, null));
+		panelPrincipal.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panelPrincipal.setBackground(SystemColor.menu);
 		panelPrincipal.setBounds(10, 84, 516, 587);
 		getContentPane().add(panelPrincipal);
