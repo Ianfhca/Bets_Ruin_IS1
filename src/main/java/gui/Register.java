@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JTextPane;
 
 public class Register extends JFrame{
 	/**
@@ -52,7 +53,8 @@ public class Register extends JFrame{
 	private JRadioButton rdbtnMale, rdbtnFemale, rdbtnOthers ;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JPasswordField passwordField_1;
-	
+	//
+	char[] password, password1;
 	
 	
 	public Register() {
@@ -80,6 +82,7 @@ public class Register extends JFrame{
 		
 		
 		passwordField = new JPasswordField();
+		password = passwordField.getPassword();
 		passwordField.setBounds(88, 152, 294, 36);
 		panelPrincipal.add(passwordField);
 		
@@ -93,6 +96,7 @@ public class Register extends JFrame{
 		panelPrincipal.add(passwordField_1);
 		
 		lblPassword_1 = new JLabel("Password:");
+		password1 = passwordField_1.getPassword();
 		lblPassword_1.setFont(new Font("Rockwell", Font.PLAIN, 16));
 		lblPassword_1.setBounds(46, 208, 279, 21);
 		panelPrincipal.add(lblPassword_1);
@@ -103,13 +107,21 @@ public class Register extends JFrame{
 		panelPrincipal.add(lblUsername);
 		
 		btnSingIn = new JButton("SING IN");
-		btnSingIn.setEnabled(false);
+		btnSingIn.setEnabled(true);
 		//if (Check_Remenber_Me.isSelected()) btnSingIn.setEnabled(true);
 		
 		
 		btnSingIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			if (password.length != password1.length ){
 				
+				System.out.println("Las contraeñas no coinciden");
+			}else {
+				//TODO guardar en la base de datos la contraseña
+				System.out.println("Las contraeñas coinciden");
+			}
+			
+			
 				
 				
 				
@@ -217,6 +229,11 @@ public class Register extends JFrame{
 		textField_3.setColumns(10);
 		textField_3.setBounds(88, 438, 294, 36);
 		panelPrincipal.add(textField_3);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBackground(SystemColor.menu);
+		textPane.setBounds(238, 484, 268, 29);
+		panelPrincipal.add(textPane);
 		
 		
 		
