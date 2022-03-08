@@ -128,17 +128,30 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
     
     /**
+     * @throws Exception 
      * 
      */
     @WebMethod
-    public User registerUser() {
+    public User registerUser(String name, String password) throws Exception {
     	User newUser = null;
     	dbManager.open(false);
-    	newUser = dbManager.registerUser();
+    	newUser = dbManager.registerUser(name , password);
     	dbManager.close();
     	System.out.println("Te has registrado como: "+newUser.getName().value());
     	return newUser;
     }
+
+	@Override
+	public void Login(String userName, String password) throws Exception {
+		// TODO Auto-generated method stub\
+		dbManager.open(false);
+		User user = dbManager.getUserByUserName(userName);
+		dbManager.close();
+		if(user==null) 
+			throw new Exception("The User is not registered, signUp please");
+	    if(!user.getPassword().value().equals(password))
+	    	throw new Exception("The password is wrong");
+	}
 
 }
 

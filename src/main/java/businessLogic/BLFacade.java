@@ -60,6 +60,8 @@ public interface BLFacade  {
 	@WebMethod public void initializeBD();
 
 	//Nuevos Métodos
-	@WebMethod public User registerUser();
+	@WebMethod public User registerUser(String UserName, String Password) throws Exception;
+	
+	public void Login(String userName, String Password) throws Exception;
 	
 }

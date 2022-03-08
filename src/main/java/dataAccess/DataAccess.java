@@ -12,6 +12,7 @@ import java.util.Vector;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -148,8 +149,12 @@ public class DataAccess {
 			db.persist(ev18);
 			db.persist(ev19);
 			db.persist(ev20);
-
+			
+			User user = new User("ADMIN","2b733549-d2cc-40f0-b7f3-9bfa9f3c1b89","admin","adminn");
+			db.persist(user);
 			db.getTransaction().commit();
+			
+			
 			System.out.println("Db initialized");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -273,18 +278,30 @@ public class DataAccess {
 
 	// Nuevos Metodos
 
-	public User registerUser() {
+	public User registerUser(String name, String password) throws IllegalArgumentException,Exception {
+		User user = getUserByUserName(name);
+		if(user!=null)
+			throw new Exception ("The user is already exists");
 		//Role role = new Role("USER");
-		try {
 			db.getTransaction().begin();
-			User newUser = new User("Pedro", "ruby24");
+			User newUser = new User(name, password);
 			db.persist(newUser);
 			db.getTransaction().commit();
 			return newUser;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		
+		
 	}
+	
+    public User getUserByUserName(String name) {
+    	UserName userName = new UserName(name);
+        TypedQuery<User> query = db.createQuery("SELECT u FROM User u WHERE u.name = ?1", User.class);
+        query.setParameter(1,userName.value());
+        try{
+            return (User) query.getSingleResult();
+        }catch(NoResultException e){
+            return null;
+        }
+    }
+    
+	
 }
