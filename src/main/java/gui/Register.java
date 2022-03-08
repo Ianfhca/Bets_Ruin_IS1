@@ -55,7 +55,8 @@ public class Register extends JFrame{
 	private JPasswordField passwordField_1;
 	//
 	char[] password, password1;
-	
+	//Panel de errores
+	JTextPane ErrorPanel;
 	
 	public Register() {
 		getContentPane().setLayout(null);
@@ -113,11 +114,12 @@ public class Register extends JFrame{
 		
 		btnSingIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if (password.length != password1.length ){
-				
+			if (password.length != password1.length){
+				ErrorPanel.setText("Error las contrase\u00F1as no coinciden");
 				System.out.println("Las contraeñas no coinciden");
 			}else {
 				//TODO guardar en la base de datos la contraseña
+				ErrorPanel.setText("Error las contrase\u00F1as coinciden");
 				System.out.println("Las contraeñas coinciden");
 			}
 			
@@ -230,10 +232,12 @@ public class Register extends JFrame{
 		textField_3.setBounds(88, 438, 294, 36);
 		panelPrincipal.add(textField_3);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBackground(SystemColor.menu);
-		textPane.setBounds(238, 484, 268, 29);
-		panelPrincipal.add(textPane);
+		ErrorPanel = new JTextPane();
+		ErrorPanel.setFont(new Font("Times New Roman", Font.ITALIC, 14));
+		ErrorPanel.setForeground(new Color(255, 0, 0));
+		ErrorPanel.setBackground(SystemColor.menu);
+		ErrorPanel.setBounds(292, 494, 214, 29);
+		panelPrincipal.add(ErrorPanel);
 		
 		
 		
