@@ -127,7 +127,9 @@ public class Register extends JFrame{
 		btnSingIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ErrorPanel.setText("");
-				if (password.toString().equals(password1.toString())){
+				String pass1= new String(passwordField.getPassword());
+				String pass2=new String(passwordField_1.getPassword());
+				if (!pass1.equals(pass2)){
 					ErrorPanel.setText("Error las contrase\u00F1as no coinciden");
 					System.out.println("Las contraeñas no coinciden");
 				}else {
