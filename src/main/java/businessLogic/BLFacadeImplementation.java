@@ -10,6 +10,7 @@ import javax.jws.WebService;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Question;
+import domain.User;
 import domain.Event;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
@@ -125,6 +126,19 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.initializeDB();
 		dbManager.close();
 	}
+    
+    /**
+     * 
+     */
+    @WebMethod
+    public User registerUser() {
+    	User newUser = null;
+    	dbManager.open(false);
+    	newUser = dbManager.registerUser();
+    	dbManager.close();
+    	System.out.println("Te has registrado como: "+newUser.getName().value());
+    	return newUser;
+    }
 
 }
 

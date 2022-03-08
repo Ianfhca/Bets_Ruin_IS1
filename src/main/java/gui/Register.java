@@ -19,6 +19,9 @@ import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
+
+import businessLogic.BLFacade;
+
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JTextPane;
@@ -58,7 +61,7 @@ public class Register extends JFrame{
 	//Panel de errores
 	JTextPane ErrorPanel;
 	
-	public Register() {
+	public Register(BLFacade facade) {
 		getContentPane().setLayout(null);
 		
 		lblRegister = new JLabel("SING IN");
@@ -123,9 +126,7 @@ public class Register extends JFrame{
 				System.out.println("Las contraeñas coinciden");
 			}
 			
-			
-				
-				
+			facade.registerUser();
 				
 			}
 		});

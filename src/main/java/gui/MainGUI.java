@@ -220,7 +220,7 @@ public class MainGUI extends JFrame {
 			btnRegister = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
 			btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JFrame a = new Register();
+					JFrame a = new Register(appFacadeInterface);
 					a.setVisible(true);
 				}
 			});

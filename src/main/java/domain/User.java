@@ -35,11 +35,11 @@ public class User {
         this.password=new UserPassword(password);
         this.type= new Role();
     }
-    public User(Role role, String id, String name, String password) throws Exception {
+    public User(String role, String id, String name, String password) throws Exception {
         this.id=new UserId(id);
         this.name=new UserName(name);
         this.password=new UserPassword(password);
-        this.type = role;
+        this.type = new Role(role);
     }
 
     public UserPassword getPassword(){
