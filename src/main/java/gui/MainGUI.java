@@ -29,6 +29,7 @@ public class MainGUI extends JFrame {
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
+	private JButton jButtonCreateForecast =null;
 
     private static BLFacade appFacadeInterface;
 	
@@ -97,9 +98,15 @@ public class MainGUI extends JFrame {
 			jContentPane.add(getLblNewLabel());
 			jContentPane.add(getBoton3());
 			jContentPane.add(getBoton2());
+			jContentPane.add(getBoton4());
 			jContentPane.add(getPanel());
 			jContentPane.add(getBtnRegister());
 			jContentPane.add(getBtnLogin());
+			
+			JButton jButtonCreateQuery_1 = new JButton();
+			jButtonCreateQuery_1.setText("Create Question");
+			jButtonCreateQuery_1.setBounds(60, 99, 481, 45);
+			jContentPane.add(jButtonCreateQuery_1);
 		}
 		return jContentPane;
 	}
@@ -113,7 +120,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton2() {
 		if (jButtonCreateQuery == null) {
 			jButtonCreateQuery = new JButton();
-			jButtonCreateQuery.setBounds(0, 126, 481, 63);
+			jButtonCreateQuery.setBounds(0, 99, 481, 45);
 			jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
 			jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -133,7 +140,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton3() {
 		if (jButtonQueryQueries == null) {
 			jButtonQueryQueries = new JButton();
-			jButtonQueryQueries.setBounds(0, 63, 481, 63);
+			jButtonQueryQueries.setBounds(0, 62, 481, 38);
 			jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
 			jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -144,6 +151,21 @@ public class MainGUI extends JFrame {
 			});
 		}
 		return jButtonQueryQueries;
+	}
+	private JButton getBoton4() {
+		if (jButtonCreateForecast == null) {
+			jButtonCreateForecast = new JButton();
+			jButtonCreateForecast.setBounds(0, 140, 481, 38);
+			jButtonCreateForecast.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
+			jButtonCreateForecast.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					JFrame a = new CreateForecastGUI(new Vector<Event>());
+
+					a.setVisible(true);
+				}
+			});
+		}
+		return jButtonCreateForecast;
 	}
 	
 

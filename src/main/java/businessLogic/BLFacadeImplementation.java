@@ -12,7 +12,11 @@ import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Question;
 import domain.Event;
+<<<<<<< Updated upstream
 import exceptions.EventAlreadyExist;
+=======
+import domain.Forecast;
+>>>>>>> Stashed changes
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
@@ -169,6 +173,17 @@ public class BLFacadeImplementation  implements BLFacade {
     	dbManager.open(false);
 		dbManager.initializeDB();
 		dbManager.close();
+	}
+
+	@Override
+	public void createForecast(String name, float multiplier, Question question) throws Exception {
+		// TODO Auto-generated method stub
+		dbManager.open(false);
+		Forecast forecast = dbManager.createForecast(name, multiplier, question);
+		dbManager.close();
+		if(forecast==null)
+			throw new Exception("The Forecast cannot be created");
+		
 	}
 
 }

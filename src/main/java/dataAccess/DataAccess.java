@@ -18,6 +18,7 @@ import javax.persistence.TypedQuery;
 import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Event;
+import domain.Forecast;
 import domain.Question;
 import exceptions.EventAlreadyExist;
 import exceptions.EventFinished;
@@ -287,5 +288,45 @@ public boolean existQuestion(Event event, String question) {
 		db.close();
 		System.out.println("DataBase closed");
 	}
+<<<<<<< Updated upstream
+=======
+
+	// Nuevos Metodos
+
+	public User registerUser(String name, String password) throws IllegalArgumentException,Exception {
+		User user = getUserByUserName(name);
+		if(user!=null)
+			throw new Exception ("The user is already exists");
+		//Role role = new Role("USER");
+			db.getTransaction().begin();
+			User newUser = new User(name, password);
+			db.persist(newUser);
+			db.getTransaction().commit();
+			return newUser;
+		
+		
+	}
+	
+    public User getUserByUserName(String name) {
+    	UserName userName = new UserName(name);
+        TypedQuery<User> query = db.createQuery("SELECT u FROM User u WHERE u.name = ?1", User.class);
+        query.setParameter(1,userName.value());
+        try{
+            return (User) query.getSingleResult();
+        }catch(NoResultException e){
+            return null;
+        }
+    }
+    
+    public Forecast createForecast(String name, float multiplier, Question question) {
+    	Forecast forecast = null;
+    	db.getTransaction().begin();
+    	forecast = new Forecast(name, multiplier,question);
+    	db.persist(forecast);
+    	db.getTransaction().commit();
+    	return forecast;
+    }
+    
+>>>>>>> Stashed changes
 	
 }

@@ -61,5 +61,10 @@ public interface BLFacade  {
 	 */	
 	@WebMethod public void initializeBD();
 
+	//Nuevos M�todos
+	@WebMethod public User registerUser(String UserName, String Password) throws Exception;
+	
+	public void Login(String userName, String Password) throws Exception;
+	public void createForecast(String name, float multiplier, Question question) throws Exception;
 	
 }
