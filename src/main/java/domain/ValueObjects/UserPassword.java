@@ -8,15 +8,15 @@ public class UserPassword {
     private final int MAX = 12;
     private String value;
 
-    public UserPassword(String password) throws IllegalArgumentException {
+    public UserPassword(String password) throws Exception {
         validate(password);
         this.value= password;
     }
-    private void validate(String password) throws IllegalArgumentException {
+    private void validate(String password) throws Exception {
         if(password.length()<MIN)
-            throw new IllegalArgumentException("Password is to short");
+            throw new Exception("Password is to short");
         if(password.length()>MAX)
-            throw new IllegalArgumentException("Password is to long");
+            throw new Exception("Password is to long");
     }
     public String value(){
         return this.value;

@@ -9,8 +9,8 @@ import java.util.Date;
 
 //import domain.Booking;
 import domain.Question;
-import domain.User;
 import domain.Event;
+import exceptions.EventAlreadyExist;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
@@ -36,6 +36,8 @@ public interface BLFacade  {
 	 */
 	@WebMethod Question createQuestion(Event event, String question, float betMinimum) throws EventFinished, QuestionAlreadyExist;
 	
+	public Event createEvent(String des, Date eveD) throws EventAlreadyExist;
+	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist;
 	
 	/**
 	 * This method retrieves the events of a given date 
@@ -59,9 +61,5 @@ public interface BLFacade  {
 	 */	
 	@WebMethod public void initializeBD();
 
-	//Nuevos Métodos
-	@WebMethod public User registerUser(String UserName, String Password) throws Exception;
-	
-	public void Login(String userName, String Password) throws Exception;
 	
 }

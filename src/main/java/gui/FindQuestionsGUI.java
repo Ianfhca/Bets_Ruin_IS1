@@ -228,5 +228,4 @@ public class FindQuestionsGUI extends JFrame {
 	private void jButton2_actionPerformed(ActionEvent e) {
 		this.setVisible(false);
 	}
-
 }

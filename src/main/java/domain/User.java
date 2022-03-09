@@ -23,23 +23,23 @@ public class User {
     @Embedded
     private Role type;
 
-    public User(String name, String password) throws IllegalArgumentException {
+    public User(String name, String password) throws Exception {
         this.id = new UserId();
         this.name = new UserName(name);
         this.password = new UserPassword(password);
         this.type = new Role();
     }
-    public User(String id, String name, String password) throws IllegalArgumentException {
+    public User(String id, String name, String password) throws Exception {
         this.id=new UserId(id);
         this.name=new UserName(name);
         this.password=new UserPassword(password);
         this.type= new Role();
     }
-    public User(String role, String id, String name, String password) throws IllegalArgumentException {
+    public User(Role role, String id, String name, String password) throws Exception {
         this.id=new UserId(id);
         this.name=new UserName(name);
         this.password=new UserPassword(password);
-        this.type = new Role(role);
+        this.type = role;
     }
 
     public UserPassword getPassword(){
