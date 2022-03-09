@@ -151,6 +151,7 @@ public class Register extends JFrame{
 			monthNames.addElement("October");
 			monthNames.addElement("November");
 			monthNames.addElement("December");
+			monthNames.addElement("December");
 			month.setSelectedIndex(0);
 		
 		lblDay = new JLabel("Day:");
