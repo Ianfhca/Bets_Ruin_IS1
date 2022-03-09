@@ -316,29 +316,22 @@ public class DataAccess {
     }
     public Event createEvent(String des, Date eveD) throws EventAlreadyExist{
     	
+    	db.getTransaction().begin();
 		Event e = new Event(des,eveD);
-		
-		db.getTransaction().begin();
 		db.persist(e);
 		db.getTransaction().commit();
-		
 		return e;
 	}
 	
 	public Event createEvent(String des, Date eveD ,String ques, float minimum) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist{
 		
-		
-		Event e = new Event(des,eveD);
-		e.addQuestion(ques, minimum);
-		
 		db.getTransaction().begin();
+		Event e = new Event(des,eveD);
+		Question q =e.addQuestion(ques, minimum);
+		db.persist(q);
 		db.persist(e);
 		db.getTransaction().commit();
 		
 		return e;
-	}
-    
-    
-    
-	
+	}	
 }

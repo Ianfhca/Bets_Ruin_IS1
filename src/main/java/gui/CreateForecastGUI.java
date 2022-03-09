@@ -68,7 +68,7 @@ public class CreateForecastGUI extends JFrame {
 		jLabelListOfEvents.setBounds(new Rectangle(289, 18, 277, 20));
 		jLabelName.setBounds(new Rectangle(25, 211, 75, 20));
 		jTextFieldName.setBounds(new Rectangle(100, 211, 429, 20));
-		jLabelMultiplayer.setBounds(new Rectangle(25, 243, 75, 20));
+		jLabelMultiplayer.setBounds(new Rectangle(25, 243, 75, 22));
 		jTextFieldmultiplier.setBounds(new Rectangle(100, 243, 60, 20));
 
 		jComboBoxQuestion.setModel(modelQuestions);
@@ -290,7 +290,7 @@ public static void paintDaysWithEvents(JCalendar jCalendar,Vector<Date> datesWit
 					System.out.println(multiplier);
 					facade.createForecast(inputForecastName, multiplier, question);
 
-					jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryCreated"));
+					jLabelMsg.setText("Forecast Created");
 				}
 			} else
 				jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("ErrorQuery"));

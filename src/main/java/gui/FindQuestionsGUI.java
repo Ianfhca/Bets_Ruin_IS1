@@ -65,7 +65,9 @@ public class FindQuestionsGUI extends JFrame {
 	}
 
 	
-	private void jbInit() throws Exception
+	
+	
+	public void jbInit() throws Exception
 	{
 
 		JFrame findQuestionsGUI = this;

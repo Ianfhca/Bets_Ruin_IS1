@@ -72,7 +72,7 @@ public class CreateEventGUI extends JFrame {
 		contentPane.add(date);
 		
 		JLabel question = new JLabel("Add a question for the event");
-		question.setBounds(10, 133, 139, 14);
+		question.setBounds(10, 133, 302, 14);
 		contentPane.add(question);
 		
 		questionT = new JTextField();
@@ -90,11 +90,11 @@ public class CreateEventGUI extends JFrame {
 		descriptionT.setColumns(10);
 		
 		minBet = new JLabel("Minimum Bet");
-		minBet.setBounds(10, 195, 67, 14);
+		minBet.setBounds(10, 195, 82, 20);
 		contentPane.add(minBet);
 		
 		minBetI = new JTextField();
-		minBetI.setBounds(87, 195, 67, 20);
+		minBetI.setBounds(109, 196, 67, 20);
 		contentPane.add(minBetI);
 		minBetI.setColumns(10);
 		
@@ -114,12 +114,14 @@ public class CreateEventGUI extends JFrame {
 				if(descriptionT.getText().equals("")){
 					ERROR.setText("Please set an event description");
 					ERROR.setEnabled(true);
+					/*
 				}else if(questionT.getText().equals("") && minBetI.getText().equals("") != false){
 					ERROR.setText("Please set a question");
 					ERROR.setEnabled(true);
 				}else if(questionT.getText().equals("") != false && minBetI.getText().equals("")){
 					ERROR.setText("Please set a minimum amount for the question");
 					ERROR.setEnabled(true);
+					*/
 				}else if(Float.parseFloat(minBetI.getText()) == 0) {
 					ERROR.setText("The minimum bet has to be number");
 					ERROR.setEnabled(true);
@@ -127,7 +129,6 @@ public class CreateEventGUI extends JFrame {
 					ERROR.setText("The minimum bet has to be higher that 0");
 					ERROR.setEnabled(true);
 				}
-
 
 				if(questionT.getText().equals("") != false && minBetI.getText().equals("") != false) {
 					try {
@@ -141,8 +142,8 @@ public class CreateEventGUI extends JFrame {
 					} catch (EventAlreadyExist e1) {
 						e1.printStackTrace();
 					}
+					
 				}
-				
 			}
 		});
 		create.setBounds(231, 259, 126, 36);
