@@ -17,6 +17,8 @@ import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
 
@@ -33,8 +35,8 @@ public class Register extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JPasswordField passwordField;
 	private JTextField userNameField;
-	private JTextField txtDate;
-	private JTextField txtDay;
+	private JTextField year;
+	private JTextField day;
 
 
 
@@ -125,16 +127,28 @@ public class Register extends JFrame{
 		panelPrincipal.add(userNameField);
 
 		btnSingIn.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				ErrorPanel.setText("");
 				String pass1= new String(passwordField.getPassword());
 				String pass2=new String(passwordField_1.getPassword());
+				
+				Date date = newDate(Integer.parseInt(year.getText()),month.getSelectedIndex(),Integer.parseInt(day.getText()));
+				Date actualDate = new Date();
 				if (!pass1.equals(pass2)){
 					ErrorPanel.setText("Error las contrase\u00F1as no coinciden");
 					System.out.println("Las contraeñas no coinciden");
-				}else {
-					try {
-
+				}
+				else if(date.compareTo(actualDate) > 0 || actualDate.getYear() - date.getYear() < 18) {
+					ErrorPanel.setText("Fecha invalida(ve a jugar al pokemon)");
+				}
+				else if (!Check_Remenber_Me.isSelected()) {
+					ErrorPanel.setText("Debes acceptar los terminos");
+				}
+				else {
+				
+				try {
+					
 						facade.registerUser(userNameField.getText(), new String(passwordField.getPassword()));
 					} catch (IllegalArgumentException e1) {
 						// TODO Auto-generated catch block
@@ -169,11 +183,11 @@ public class Register extends JFrame{
 		lblYear.setBounds(46, 310, 33, 16);
 		panelPrincipal.add(lblYear);
 
-		txtDate = new JTextField();
-		txtDate.setText("xxxx");
-		txtDate.setColumns(10);
-		txtDate.setBounds(88, 306, 50, 26);
-		panelPrincipal.add(txtDate);
+		year = new JTextField();
+		year.setText("xxxx");
+		year.setColumns(10);
+		year.setBounds(88, 306, 50, 26);
+		panelPrincipal.add(year);
 
 		lblMonth = new JLabel("Month:");
 		lblMonth.setBounds(158, 310, 50, 16);
@@ -203,11 +217,11 @@ public class Register extends JFrame{
 		lblDay.setBounds(344, 310, 38, 16);
 		panelPrincipal.add(lblDay);
 
-		txtDay = new JTextField();
-		txtDay.setText("xx");
-		txtDay.setColumns(10);
-		txtDay.setBounds(388, 306, 67, 26);
-		panelPrincipal.add(txtDay);
+		day = new JTextField();
+		day.setText("xx");
+		day.setColumns(10);
+		day.setBounds(388, 306, 67, 26);
+		panelPrincipal.add(day);
 
 		lblDate = new JLabel("Born date:");
 		lblDate.setFont(new Font("Rockwell", Font.PLAIN, 16));
@@ -252,11 +266,22 @@ public class Register extends JFrame{
 		ErrorPanel.setFont(new Font("Times New Roman", Font.ITALIC, 14));
 		ErrorPanel.setForeground(new Color(255, 0, 0));
 		ErrorPanel.setBackground(SystemColor.menu);
-		ErrorPanel.setBounds(292, 494, 214, 29);
+		ErrorPanel.setBounds(292, 484, 214, 36);
 		panelPrincipal.add(ErrorPanel);
 
 
+		
+		
 
 		this.setSize(550, 710);
+	}
+	private Date newDate(int year,int month,int day) {
+
+	     Calendar calendar = Calendar.getInstance();
+	     calendar.setLenient(false); // To avoid use heuristics to parse inputs as dates
+	     calendar.set(year, month, day,0,0,0);
+	     calendar.set(Calendar.MILLISECOND, 0);
+
+	     return calendar.getTime();
 	}
 }
