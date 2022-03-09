@@ -43,6 +43,8 @@ private static final long serialVersionUID = 1L;
 	private JLabel jLabelError = new JLabel();
 	
 	private Vector<Date> datesWithEventsCurrentMonth = new Vector<Date>();
+	
+	private JButton btnBack = new JButton(ResourceBundle.getBundle("Etiquetas").getString("CreateQuestionGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
 
 	public CreateQuestionGUI(Vector<domain.Event> v) {
 		try {
@@ -53,7 +55,8 @@ private static final long serialVersionUID = 1L;
 	}
 
 	private void jbInit(Vector<domain.Event> v) throws Exception {
-
+		
+		JFrame CreateQuestionGUI = this;
 		this.getContentPane().setLayout(null);
 		this.setSize(new Dimension(604, 370));
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
@@ -116,6 +119,16 @@ private static final long serialVersionUID = 1L;
 		jLabelEventDate.setBounds(new Rectangle(40, 15, 140, 25));
 		jLabelEventDate.setBounds(40, 16, 140, 25);
 		getContentPane().add(jLabelEventDate);
+		
+		btnBack = new JButton("\u2190");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateQuestionGUI.setVisible(false);;
+			}
+		});
+		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
+		btnBack.setBounds(10, 275, 69, 36);
+		this.getContentPane().add(btnBack);
 
 		
 		// Code for JCalendar

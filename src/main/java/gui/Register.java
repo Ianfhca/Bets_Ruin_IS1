@@ -56,7 +56,7 @@ public class Register extends JFrame{
 	private JLabel lblDate, lblGender, lblCurrentAccount,lblYear ,lblMonth, lblDay, lblRegister, lblUsername, lblPassword, lblPassword_1;
 
 	//Botones
-	private JButton btnSingIn, btnBack;
+	private JButton btnSingUp, btnBack;
 	private JRadioButton rdbtnMale, rdbtnFemale, rdbtnOthers ;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JPasswordField passwordField_1;
@@ -118,8 +118,8 @@ public class Register extends JFrame{
 		lblUsername.setBounds(46, 56, 294, 21);
 		panelPrincipal.add(lblUsername);
 
-		btnSingIn = new JButton("SING UP");
-		btnSingIn.setEnabled(true);
+		btnSingUp = new JButton("SING UP");
+		btnSingUp.setEnabled(true);
 		//if (Check_Remenber_Me.isSelected()) btnSingIn.setEnabled(true);
 
 		userNameField = new JTextField();
@@ -127,7 +127,7 @@ public class Register extends JFrame{
 		userNameField.setBounds(88, 76, 294, 36);
 		panelPrincipal.add(userNameField);
 
-		btnSingIn.addActionListener(new ActionListener() {
+		btnSingUp.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				ErrorPanel.setText("");
@@ -163,14 +163,13 @@ public class Register extends JFrame{
 
 			}
 		});
-		btnSingIn.setFont(new Font("Rockwell", Font.PLAIN, 17));
-		btnSingIn.setBounds(360, 520, 113, 36);
-		panelPrincipal.add(btnSingIn);
+		btnSingUp.setFont(new Font("Rockwell", Font.PLAIN, 17));
+		btnSingUp.setBounds(360, 520, 113, 36);
+		panelPrincipal.add(btnSingUp);
 
 		btnBack = new JButton("\u2190");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame a = new MainGUI();
 				registro.setVisible(false);
 			}
 		});
