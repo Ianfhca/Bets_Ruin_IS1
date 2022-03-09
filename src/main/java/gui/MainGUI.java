@@ -7,6 +7,7 @@ package gui;
 import javax.swing.*;
 
 import domain.Event;
+import domain.User;
 import businessLogic.BLFacade;
 
 import java.awt.Color;
@@ -21,24 +22,28 @@ import java.util.Vector;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class MainGUI extends JFrame {
-	
+
 	private static final long serialVersionUID = 1L;
+
+	private MainGUI main = this;
+	private User user = null;
 
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
+	private JButton btnCreateEvent = null;
 
-    private static BLFacade appFacadeInterface;
-	
-	public static BLFacade getBusinessLogic(){
+	private static BLFacade appFacadeInterface;
+
+	public static BLFacade getBusinessLogic() {
 		return appFacadeInterface;
 	}
-	 
-	public static void setBussinessLogic (BLFacade afi){
-		appFacadeInterface=afi;
+
+	public static void setBussinessLogic(BLFacade afi) {
+		appFacadeInterface = afi;
 	}
+
 	protected JLabel jLabelSelectOption;
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnNewRadioButton_1;
@@ -47,31 +52,30 @@ public class MainGUI extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JButton btnRegister;
 	private JButton btnLogin;
-	
+
 	/**
 	 * This is the default constructor
 	 */
 	public MainGUI() {
 		super();
-		
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				try {
-					//if (ConfigXML.getInstance().isBusinessLogicLocal()) facade.close();
+					// if (ConfigXML.getInstance().isBusinessLogicLocal()) facade.close();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
-					System.out.println("Error: "+e1.toString()+" , probably problems with Business Logic or Database");
+					System.out.println(
+							"Error: " + e1.toString() + " , probably problems with Business Logic or Database");
 				}
 				System.exit(1);
 			}
 		});
 
 		initialize();
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	
 
 	/**
 	 * This method initializes this
@@ -100,21 +104,23 @@ public class MainGUI extends JFrame {
 			jContentPane.add(getPanel());
 			jContentPane.add(getBtnRegister());
 			jContentPane.add(getBtnLogin());
-			
-			JButton btnCreateEvent = new JButton();
-			btnCreateEvent.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					CreateEventGUI a = new CreateEventGUI();
-					a.setVisible(true);
-				}
-			});
+
+			btnCreateEvent = new JButton();
 			btnCreateEvent.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnCreateEvent.text")); //$NON-NLS-1$ //$NON-NLS-2$
 			btnCreateEvent.setBounds(280, 64, 191, 63);
 			jContentPane.add(btnCreateEvent);
+			btnCreateEvent.setVisible(false);
+			btnCreateEvent.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (user != null && user.isAdmin()) {
+						CreateEventGUI a = new CreateEventGUI();
+						a.setVisible(true);
+					}
+				}
+			});
 		}
 		return jContentPane;
 	}
-
 
 	/**
 	 * This method initializes boton1
@@ -126,16 +132,20 @@ public class MainGUI extends JFrame {
 			jButtonCreateQuery = new JButton();
 			jButtonCreateQuery.setBounds(0, 64, 191, 63);
 			jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
+			jButtonCreateQuery.setVisible(false);
 			jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					JFrame a = new CreateQuestionGUI(new Vector<Event>());
-					a.setVisible(true);
+					if (user != null && user.isAdmin()) {
+						//jButtonCreateQuery.setVisible(true);
+						JFrame a = new CreateQuestionGUI(new Vector<Event>());
+						a.setVisible(true);
+					}
 				}
 			});
 		}
 		return jButtonCreateQuery;
 	}
-	
+
 	/**
 	 * This method initializes boton2
 	 * 
@@ -146,17 +156,19 @@ public class MainGUI extends JFrame {
 			jButtonQueryQueries = new JButton();
 			jButtonQueryQueries.setBounds(138, 129, 191, 63);
 			jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
+			jButtonQueryQueries.setVisible(false);
 			jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					JFrame a = new FindQuestionsGUI();
-
-					a.setVisible(true);
+					if (user != null) {
+						//jButtonQueryQueries.setVisible(true);
+						JFrame a = new FindQuestionsGUI();
+						a.setVisible(true);
+					}
 				}
 			});
 		}
 		return jButtonQueryQueries;
 	}
-	
 
 	private JLabel getLblNewLabel() {
 		if (jLabelSelectOption == null) {
@@ -168,39 +180,44 @@ public class MainGUI extends JFrame {
 		}
 		return jLabelSelectOption;
 	}
+
 	private JRadioButton getRdbtnNewRadioButton() {
 		if (rdbtnNewRadioButton == null) {
 			rdbtnNewRadioButton = new JRadioButton("English", true);
 			rdbtnNewRadioButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					Locale.setDefault(new Locale("en"));
-					System.out.println("Locale: "+Locale.getDefault());
-					redibujar();				}
+					System.out.println("Locale: " + Locale.getDefault());
+					redibujar();
+				}
 			});
 			buttonGroup.add(rdbtnNewRadioButton);
 		}
 		return rdbtnNewRadioButton;
 	}
+
 	private JRadioButton getRdbtnNewRadioButton_1() {
 		if (rdbtnNewRadioButton_1 == null) {
 			rdbtnNewRadioButton_1 = new JRadioButton("Euskara");
 			rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					Locale.setDefault(new Locale("eus"));
-					System.out.println("Locale: "+Locale.getDefault());
-					redibujar();				}
+					System.out.println("Locale: " + Locale.getDefault());
+					redibujar();
+				}
 			});
 			buttonGroup.add(rdbtnNewRadioButton_1);
 		}
 		return rdbtnNewRadioButton_1;
 	}
+
 	private JRadioButton getRdbtnNewRadioButton_2() {
 		if (rdbtnNewRadioButton_2 == null) {
 			rdbtnNewRadioButton_2 = new JRadioButton("Castellano");
 			rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					Locale.setDefault(new Locale("es"));
-					System.out.println("Locale: "+Locale.getDefault());
+					System.out.println("Locale: " + Locale.getDefault());
 					redibujar();
 				}
 			});
@@ -208,6 +225,7 @@ public class MainGUI extends JFrame {
 		}
 		return rdbtnNewRadioButton_2;
 	}
+
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
@@ -218,14 +236,14 @@ public class MainGUI extends JFrame {
 		}
 		return panel;
 	}
-	
+
 	private void redibujar() {
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("SelectOption"));
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainTitle"));
 	}
-	
+
 	private JButton getBtnRegister() {
 		if (btnRegister == null) {
 			btnRegister = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
@@ -239,12 +257,13 @@ public class MainGUI extends JFrame {
 		}
 		return btnRegister;
 	}
+
 	private JButton getBtnLogin() {
 		if (btnLogin == null) {
 			btnLogin = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
 			btnLogin.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JFrame a = new Login();
+					JFrame a = new Login(main);
 					a.setVisible(true);
 				}
 			});
@@ -252,5 +271,21 @@ public class MainGUI extends JFrame {
 		}
 		return btnLogin;
 	}
-} // @jve:decl-index=0:visual-constraint="0,0"
 
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public void setVisible() {
+		if (user != null && user.isAdmin()) {
+			jButtonCreateQuery.setVisible(true);
+			btnCreateEvent.setVisible(true);
+			jButtonQueryQueries.setVisible(true);
+		} else if (user != null) {
+			jButtonQueryQueries.setVisible(true);
+		}
+		btnLogin.setVisible(false);
+		btnRegister.setVisible(false);
+	}
+	
+} // @jve:decl-index=0:visual-constraint="0,0"
