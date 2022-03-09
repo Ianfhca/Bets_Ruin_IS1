@@ -21,6 +21,8 @@ import configuration.UtilDate;
 import domain.Event;
 import domain.Question;
 import domain.User;
+import exceptions.EventAlreadyExist;
+import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
 import domain.ValueObjects.*;
@@ -302,6 +304,32 @@ public class DataAccess {
             return null;
         }
     }
+    
+    public Event createEvent(String des, Date eveD) throws EventAlreadyExist{
+    	
+		Event e = new Event(des,eveD);
+		
+		db.getTransaction().begin();
+		db.persist(e);
+		db.getTransaction().commit();
+		
+		return e;
+	}
+	
+	public Event createEvent(String des, Date eveD ,String ques, float minimum) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist{
+		
+		
+		Event e = new Event(des,eveD);
+		e.addQuestion(ques, minimum);
+		
+		db.getTransaction().begin();
+		db.persist(e);
+		db.getTransaction().commit();
+		
+		return e;
+	}
+    
+    
     
 	
 }
