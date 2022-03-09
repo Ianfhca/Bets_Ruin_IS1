@@ -8,6 +8,7 @@ import javax.swing.*;
 
 import domain.Event;
 import businessLogic.BLFacade;
+import domain.User;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -23,6 +24,7 @@ import java.awt.event.ActionEvent;
 
 
 public class MainGUI extends JFrame {
+
 	
 	private static final long serialVersionUID = 1L;
 
@@ -54,7 +56,6 @@ public class MainGUI extends JFrame {
 	 */
 	public MainGUI() {
 		super();
-		
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -257,6 +258,7 @@ public class MainGUI extends JFrame {
 		return btnRegister;
 	}
 	private JButton getBtnLogin() {
+		MainGUI gui = this;
 		if (btnLogin == null) {
 			btnLogin = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnNewButton_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
 			btnLogin.addActionListener(new ActionListener() {

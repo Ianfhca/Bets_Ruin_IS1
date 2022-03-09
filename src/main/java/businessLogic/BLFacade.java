@@ -66,5 +66,6 @@ public interface BLFacade  {
 	
 	public Event createEvent(String des, Date eveD) throws EventAlreadyExist;
 	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist;
+	public void createForecast(String name, float multiplier, Question question) throws Exception;
 	
 }

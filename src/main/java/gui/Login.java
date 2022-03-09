@@ -8,6 +8,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
 import businessLogic.BLFacade;
+import com.sun.tools.javac.Main;
 import domain.User;
 
 import javax.swing.border.BevelBorder;
@@ -130,7 +131,7 @@ public class Login extends JFrame {
 			}
 		});
 	}
-	
+
 	public boolean isAdmin() {
 		if (user.isAdmin()) return true;
 		return false;
