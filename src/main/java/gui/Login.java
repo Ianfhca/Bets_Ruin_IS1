@@ -28,6 +28,8 @@ public class Login extends JFrame {
 	private JLabel lblLOGIN, Label_Password, Label_Username;
 
 	public Login() {
+		JFrame login = this;
+		
 		BLFacade facade = MainGUI.getBusinessLogic();
 		setTitle("Login Box");
 		setBackground(SystemColor.controlShadow);
@@ -82,7 +84,7 @@ public class Login extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new MainGUI();
-				a.setVisible(true);
+				login.setVisible(false);
 			}
 		});
 		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
