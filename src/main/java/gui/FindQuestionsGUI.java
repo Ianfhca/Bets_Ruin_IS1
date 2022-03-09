@@ -50,6 +50,7 @@ public class FindQuestionsGUI extends JFrame {
 			ResourceBundle.getBundle("Etiquetas").getString("Query")
 
 	};
+	private JButton btnBack = new JButton(ResourceBundle.getBundle("Etiquetas").getString("FindQuestionsGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
 
 	public FindQuestionsGUI()
 	{
@@ -67,6 +68,7 @@ public class FindQuestionsGUI extends JFrame {
 	private void jbInit() throws Exception
 	{
 
+		JFrame findQuestionsGUI = this;
 		this.getContentPane().setLayout(null);
 		this.setSize(new Dimension(700, 500));
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
@@ -222,9 +224,17 @@ public class FindQuestionsGUI extends JFrame {
 
 		this.getContentPane().add(scrollPaneEvents, null);
 		this.getContentPane().add(scrollPaneQueries, null);
-
+		btnBack = new JButton("\u2190");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				findQuestionsGUI.setVisible(false);;
+			}
+		});
+		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
+		btnBack.setBounds(10, 406, 69, 36);
+		this.getContentPane().add(btnBack);
 	}
-
+	
 	private void jButton2_actionPerformed(ActionEvent e) {
 		this.setVisible(false);
 	}

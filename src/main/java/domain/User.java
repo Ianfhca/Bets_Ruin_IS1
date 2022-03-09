@@ -22,27 +22,46 @@ public class User {
     private UserPassword password;
     @Embedded
     private Role type;
-
-    public User(String name, String password) throws Exception {
+    //date
+    private int year;
+    
+    
+    public User(String name, String password) throws IllegalArgumentException {
         this.id = new UserId();
         this.name = new UserName(name);
         this.password = new UserPassword(password);
         this.type = new Role();
     }
-    public User(String id, String name, String password) throws Exception {
+    public User(String id, String name, String password) throws IllegalArgumentException {
         this.id=new UserId(id);
         this.name=new UserName(name);
         this.password=new UserPassword(password);
         this.type= new Role();
     }
-    public User(Role role, String id, String name, String password) throws Exception {
+    public User(String role, String id, String name, String password) throws IllegalArgumentException {
         this.id=new UserId(id);
         this.name=new UserName(name);
         this.password=new UserPassword(password);
-        this.type = role;
+        this.type = new Role(role);
+    }
+    
+    
+    public User(String role, String id, String name, String password,int year) throws IllegalArgumentException {
+        this.id=new UserId(id);
+        this.name=new UserName(name);
+        this.password=new UserPassword(password);
+        this.type = new Role(role);
     }
 
-    public UserPassword getPassword(){
+    public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+	
+	public UserPassword getPassword(){
         return password;
     }
 
@@ -73,6 +92,8 @@ public class User {
     }
 
 
+    
+      
     @Override
     public String toString() {
         return "User{" +

@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,6 +33,7 @@ public class CreateEventGUI extends JFrame {
 	private JTextField descriptionT;
 	private JLabel minBet;
 	private JTextField minBetI;
+	private JButton btnBack;
 
 	/**
 	 * Launch the application.
@@ -53,6 +55,7 @@ public class CreateEventGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CreateEventGUI() {
+		JFrame createEvento = this;
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 610, 335);
@@ -78,7 +81,7 @@ public class CreateEventGUI extends JFrame {
 		questionT.setColumns(10);
 		
 		description = new JLabel("Describe the event");
-		description.setBounds(10, 22, 98, 14);
+		description.setBounds(10, 22, 154, 14);
 		contentPane.add(description);
 		
 		descriptionT = new JTextField();
@@ -124,7 +127,8 @@ public class CreateEventGUI extends JFrame {
 					ERROR.setText("The minimum bet has to be higher that 0");
 					ERROR.setEnabled(true);
 				}
-				
+
+
 				if(questionT.getText().equals("") != false && minBetI.getText().equals("") != false) {
 					try {
 						facade.createEvent(descriptionT.getText(),jCalendar1.getDate(), questionT.getText(), Float.parseFloat(minBetI.getText()));
@@ -138,11 +142,25 @@ public class CreateEventGUI extends JFrame {
 						e1.printStackTrace();
 					}
 				}
+				
 			}
 		});
 		create.setBounds(231, 259, 126, 36);
 		contentPane.add(create);
 		
+		
+		
+		btnBack = new JButton("\u2190");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame a = new MainGUI();
+				createEvento.setVisible(false);;
+			}
+		});
+		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
+		btnBack.setBounds(10, 249, 69, 36);
+		contentPane.add(btnBack);
 
 	}
+	
 }

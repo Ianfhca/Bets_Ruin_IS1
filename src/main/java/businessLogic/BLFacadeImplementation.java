@@ -1,7 +1,6 @@
 package businessLogic;
 //hola
 import java.util.Date;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
@@ -12,8 +11,6 @@ import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Question;
 import domain.User;
-import domain.ValueObjects.UserName;
-import domain.ValueObjects.UserPassword;
 import domain.Event;
 import exceptions.EventAlreadyExist;
 import domain.Forecast;
@@ -84,49 +81,6 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 		return qry;
    };
-   
-   public Event createEvent(String des, Date eveD) throws EventAlreadyExist{
-	   
-	   dbManager.open(false);
-	   
-	   Vector<Event> events  = new Vector<Event>();
-	   Random ran = new Random();
-	   int id = ran.nextInt(100);
-	      
-	   if(new Date().compareTo(eveD) > 0) {
-		   for (int i = 0 ; i < events.size() ; i++) {
-			   if(events.get(i).equals(des) && new Date().compareTo(eveD)>0) {
-				   throw new EventAlreadyExist(ResourceBundle.getBundle("Etiquetas").getString("ERROR Event Already Exist"));
-			   }
-		   }
-	   }
-	   
-	   Event e = new Event(id,des,eveD);
-	   
-	   return e;
-   }	
-   
-   public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist{
-	   
-	   dbManager.open(false);
-	   
-	   Vector<Event> events  = new Vector<Event>();
-	   Random ran = new Random();
-	   int id = ran.nextInt(100);
-	      
-	   if(new Date().compareTo(eveD) > 0) {
-		   for (int i = 0 ; i < events.size() ; i++) {
-			   if(events.get(i).equals(des) && new Date().compareTo(eveD)>0) {
-				   throw new EventAlreadyExist(ResourceBundle.getBundle("Etiquetas").getString("ERROR Event Already Exist"));
-			   }
-		   }
-	   }
-	   
-	   Event e = new Event(id,des,eveD);
-	   createQuestion(e, ques, minimum);
-	   
-	   return e;
-   }
 	
 	/**
 	 * This method invokes the data access to retrieve the events of a given date 
@@ -174,6 +128,13 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.initializeDB();
 		dbManager.close();
 	}
+    
+    //Nuevos M�todos
+    
+    /**
+     * @throws Exception 
+     * 
+     */
 
 	@Override
 	public void createForecast(String name, float multiplier, Question question) throws Exception {
@@ -197,16 +158,44 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 
 	@Override
-	public void Login(String userName, String password) throws Exception {
+	public User Login(String userName, String password) throws Exception {
+		// TODO Auto-generated method stub\
+		User user = null;
 		dbManager.open(false);
-		User user = dbManager.getUserByUserName(userName);
+		user = dbManager.getUserByUserName(userName);
 		dbManager.close();
 		if(user==null) 
 			throw new Exception("The User is not registered, signUp please");
 	    if(!user.getPassword().value().equals(password))
 	    	throw new Exception("The password is wrong");
+	    return user;
+	}
+	
+	
+	public Event createEvent(String des, Date eveD) throws EventAlreadyExist{
+		Event newEvent = null;
+		dbManager.open(false);
+		newEvent= dbManager.createEvent(des, eveD);
+		dbManager.close();
+		return newEvent;
+		
+		
+		
 		
 	}
+	
+	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist{
+		Event newEvent = null;
+		dbManager.open(false);
+		newEvent= dbManager.createEvent(des, eveD, ques, minimum);
+		dbManager.close();
+		return newEvent;
+		
+		
+		
+	}
+	
+	
+	
 
 }
-

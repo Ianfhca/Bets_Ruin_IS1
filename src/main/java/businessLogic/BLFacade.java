@@ -37,9 +37,6 @@ public interface BLFacade  {
 	 */
 	@WebMethod Question createQuestion(Event event, String question, float betMinimum) throws EventFinished, QuestionAlreadyExist;
 	
-	public Event createEvent(String des, Date eveD) throws EventAlreadyExist;
-	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist;
-	
 	/**
 	 * This method retrieves the events of a given date 
 	 * 
@@ -61,11 +58,13 @@ public interface BLFacade  {
 	 * It is invoked only when the option "initialize" is declared in the tag dataBaseOpenMode of resources/config.xml file
 	 */	
 	@WebMethod public void initializeBD();
-
-	//Nuevos M�todos
-	@WebMethod public User registerUser(String userName, String password) throws Exception;
+ 
 	
-	public void Login(String userName, String Password) throws Exception;
-	public void createForecast(String name, float multiplier, Question question) throws Exception;
+	//nuevos metodos
+	@WebMethod public User registerUser(String UserName, String Password) throws Exception;
+	public User Login(String userName, String Password) throws Exception;
+	
+	public Event createEvent(String des, Date eveD) throws EventAlreadyExist;
+	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist;
 	
 }

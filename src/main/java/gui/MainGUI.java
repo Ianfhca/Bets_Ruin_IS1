@@ -103,10 +103,16 @@ public class MainGUI extends JFrame {
 			jContentPane.add(getBtnRegister());
 			jContentPane.add(getBtnLogin());
 			
-			JButton jButtonCreateQuery_1 = new JButton();
-			jButtonCreateQuery_1.setText("Create Question");
-			jButtonCreateQuery_1.setBounds(60, 99, 481, 45);
-			jContentPane.add(jButtonCreateQuery_1);
+			JButton btnCreateEvent = new JButton();
+			btnCreateEvent.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					CreateEventGUI a = new CreateEventGUI();
+					a.setVisible(true);
+				}
+			});
+			btnCreateEvent.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnCreateEvent.text")); //$NON-NLS-1$ //$NON-NLS-2$
+			btnCreateEvent.setBounds(280, 64, 191, 63);
+			jContentPane.add(btnCreateEvent);
 		}
 		return jContentPane;
 	}
@@ -120,7 +126,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton2() {
 		if (jButtonCreateQuery == null) {
 			jButtonCreateQuery = new JButton();
-			jButtonCreateQuery.setBounds(0, 99, 481, 45);
+			jButtonCreateQuery.setBounds(0, 64, 191, 63);
 			jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
 			jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -140,7 +146,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton3() {
 		if (jButtonQueryQueries == null) {
 			jButtonQueryQueries = new JButton();
-			jButtonQueryQueries.setBounds(0, 62, 481, 38);
+			jButtonQueryQueries.setBounds(138, 129, 191, 63);
 			jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
 			jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
