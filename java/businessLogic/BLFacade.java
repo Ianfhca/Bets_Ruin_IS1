@@ -62,7 +62,7 @@ public interface BLFacade  {
 	
 	//nuevos metodos
 	@WebMethod public User registerUser(String UserName, String Password) throws Exception;
-	public void Login(String userName, String Password) throws Exception;
+	public User Login(String userName, String Password) throws Exception;
 	
 	public Event createEvent(String des, Date eveD) throws EventAlreadyExist;
 	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist;

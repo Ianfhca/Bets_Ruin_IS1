@@ -145,15 +145,17 @@ public class BLFacadeImplementation  implements BLFacade {
     }
 
 	@Override
-	public void Login(String userName, String password) throws Exception {
+	public User Login(String userName, String password) throws Exception {
 		// TODO Auto-generated method stub\
+		User user = null;
 		dbManager.open(false);
-		User user = dbManager.getUserByUserName(userName);
+		user = dbManager.getUserByUserName(userName);
 		dbManager.close();
 		if(user==null) 
 			throw new Exception("The User is not registered, signUp please");
 	    if(!user.getPassword().value().equals(password))
 	    	throw new Exception("The password is wrong");
+	    return user;
 	}
 	
 	

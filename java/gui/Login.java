@@ -8,12 +8,21 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
 import businessLogic.BLFacade;
+import domain.User;
 
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
 
 
 public class Login extends JFrame {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private User user;
+	private JPasswordField passwordField;
+	private JTextField userNameField;
 
 	//JPanel
 	private JPanel panelPrincipal;
@@ -107,7 +116,7 @@ public class Login extends JFrame {
 				ErrorPanel.setText("");
 				try {
 
-					facade.Login(userNameField.getText(), new String(passwordField.getPassword()));
+					user = facade.Login(userNameField.getText(), new String(passwordField.getPassword()));
 					System.out.println("Logeado correctamente");
 				} catch (IllegalArgumentException e1) {
 					// TODO Auto-generated catch block
@@ -121,11 +130,9 @@ public class Login extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private JPasswordField passwordField;
-	private JTextField userNameField;
+	
+	public boolean isAdmin() {
+		if (user.isAdmin()) return true;
+		return false;
+	}
 }
