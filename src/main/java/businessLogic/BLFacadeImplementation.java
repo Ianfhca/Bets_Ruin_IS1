@@ -127,6 +127,8 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 	}
     
+    //Nuevos Métodos
+    
     /**
      * @throws Exception 
      * 
