@@ -112,7 +112,7 @@ public class MainGUI extends JFrame {
 				}
 			});
 			btnCreateEvent.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.btnCreateEvent.text")); //$NON-NLS-1$ //$NON-NLS-2$
-			btnCreateEvent.setBounds(280, 64, 191, 63);
+			btnCreateEvent.setBounds(255, 64, 216, 38);
 			jContentPane.add(btnCreateEvent);
 		}
 		return jContentPane;
@@ -127,7 +127,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton2() {
 		if (jButtonCreateQuery == null) {
 			jButtonCreateQuery = new JButton();
-			jButtonCreateQuery.setBounds(0, 64, 191, 63);
+			jButtonCreateQuery.setBounds(0, 64, 245, 38);
 			jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
 			jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -147,7 +147,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton3() {
 		if (jButtonQueryQueries == null) {
 			jButtonQueryQueries = new JButton();
-			jButtonQueryQueries.setBounds(138, 129, 191, 63);
+			jButtonQueryQueries.setBounds(10, 113, 235, 38);
 			jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
 			jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -162,7 +162,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton4() {
 		if (jButtonCreateForecast == null) {
 			jButtonCreateForecast = new JButton();
-			jButtonCreateForecast.setBounds(0, 140, 481, 38);
+			jButtonCreateForecast.setBounds(255, 113, 214, 38);
 			jButtonCreateForecast.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
 			jButtonCreateForecast.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
