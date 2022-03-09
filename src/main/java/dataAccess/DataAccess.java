@@ -19,6 +19,7 @@ import javax.persistence.TypedQuery;
 import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Event;
+import domain.Forecast;
 import domain.Question;
 import domain.User;
 import exceptions.EventAlreadyExist;
@@ -305,6 +306,14 @@ public class DataAccess {
         }
     }
     
+    public Forecast createForecast(String name, float multiplier, Question question) {
+    	Forecast forecast = null;
+    	db.getTransaction().begin();
+    	forecast = new Forecast(name, multiplier,question);
+    	db.persist(forecast);
+    	db.getTransaction().commit();
+    	return forecast;
+    }
     public Event createEvent(String des, Date eveD) throws EventAlreadyExist{
     	
 		Event e = new Event(des,eveD);

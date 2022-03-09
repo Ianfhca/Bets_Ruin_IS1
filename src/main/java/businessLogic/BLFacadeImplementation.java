@@ -13,6 +13,7 @@ import domain.Question;
 import domain.User;
 import domain.Event;
 import exceptions.EventAlreadyExist;
+import domain.Forecast;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
@@ -128,21 +129,33 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 	}
     
-    //Nuevos Métodos
+    //Nuevos Mï¿½todos
     
     /**
      * @throws Exception 
      * 
      */
-    @WebMethod
-    public User registerUser(String name, String password) throws Exception {
-    	User newUser = null;
+
+	@Override
+	public void createForecast(String name, float multiplier, Question question) throws Exception {
+		// TODO Auto-generated method stub
+		dbManager.open(false);
+		Forecast forecast = dbManager.createForecast(name, multiplier, question);
+		dbManager.close();
+		if(forecast==null)
+			throw new Exception("The Forecast cannot be created");
+		
+	}
+
+	@Override
+	public User registerUser(String userName, String password) throws Exception {
+		User newUser = null;
     	dbManager.open(false);
-    	newUser = dbManager.registerUser(name , password);
+    	newUser = dbManager.registerUser(userName , password);
     	dbManager.close();
     	System.out.println("Te has registrado como: "+newUser.getName().value());
     	return newUser;
-    }
+	}
 
 	@Override
 	public User Login(String userName, String password) throws Exception {

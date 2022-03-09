@@ -2,6 +2,7 @@ package gui;
 
 import java.text.DateFormat;
 import java.util.*;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -15,22 +16,26 @@ import java.beans.PropertyChangeListener;
 import businessLogic.BLFacade;
 import configuration.UtilDate;
 import domain.Event;
+import domain.Question;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
-public class CreateQuestionGUI extends JFrame {
-private static final long serialVersionUID = 1L;
+public class CreateForecastGUI extends JFrame {
+	private static final long serialVersionUID = 1L;
 
 	private JComboBox<Event> jComboBoxEvents = new JComboBox<Event>();
 	DefaultComboBoxModel<Event> modelEvents = new DefaultComboBoxModel<Event>();
+	
+	private JComboBox<Question> jComboBoxQuestion = new JComboBox<Question>();
+	DefaultComboBoxModel<Question> modelQuestions = new DefaultComboBoxModel<Question>();
 
 	private JLabel jLabelListOfEvents = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ListEvents"));
-	private JLabel jLabelQuery = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("Query"));
-	private JLabel jLabelMinBet = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MinimumBetPrice"));
+	private JLabel jLabelName = new JLabel("Forecast Name");
+	private JLabel jLabelMultiplayer = new JLabel("Multiplier");
 	private JLabel jLabelEventDate = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("EventDate"));
 
-	private JTextField jTextFieldQuery = new JTextField();
-	private JTextField jTextFieldPrice = new JTextField();
+	private JTextField jTextFieldName = new JTextField();
+	private JTextField jTextFieldmultiplier = new JTextField();
 	private JCalendar jCalendar = new JCalendar();
 	private Calendar calendarAct = null;
 	private Calendar calendarAnt = null;
@@ -43,10 +48,8 @@ private static final long serialVersionUID = 1L;
 	private JLabel jLabelError = new JLabel();
 	
 	private Vector<Date> datesWithEventsCurrentMonth = new Vector<Date>();
-	
-	private JButton btnBack = new JButton(ResourceBundle.getBundle("Etiquetas").getString("CreateQuestionGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
 
-	public CreateQuestionGUI(Vector<domain.Event> v) {
+	public CreateForecastGUI(Vector<domain.Event> v) {
 		try {
 			jbInit(v);
 		} catch (Exception e) {
@@ -55,8 +58,7 @@ private static final long serialVersionUID = 1L;
 	}
 
 	private void jbInit(Vector<domain.Event> v) throws Exception {
-		
-		JFrame CreateQuestionGUI = this;
+
 		this.getContentPane().setLayout(null);
 		this.setSize(new Dimension(604, 370));
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
@@ -64,10 +66,14 @@ private static final long serialVersionUID = 1L;
 		jComboBoxEvents.setModel(modelEvents);
 		jComboBoxEvents.setBounds(new Rectangle(289, 49, 250, 20));
 		jLabelListOfEvents.setBounds(new Rectangle(289, 18, 277, 20));
-		jLabelQuery.setBounds(new Rectangle(25, 211, 75, 20));
-		jTextFieldQuery.setBounds(new Rectangle(100, 211, 429, 20));
-		jLabelMinBet.setBounds(new Rectangle(25, 243, 75, 20));
-		jTextFieldPrice.setBounds(new Rectangle(100, 243, 60, 20));
+		jLabelName.setBounds(new Rectangle(25, 211, 75, 20));
+		jTextFieldName.setBounds(new Rectangle(100, 211, 429, 20));
+		jLabelMultiplayer.setBounds(new Rectangle(25, 243, 75, 20));
+		jTextFieldmultiplier.setBounds(new Rectangle(100, 243, 60, 20));
+
+		jComboBoxQuestion.setModel(modelQuestions);
+		jComboBoxQuestion.setBounds(289, 90, 250, 22);
+		getContentPane().add(jComboBoxQuestion);
 
 		jCalendar.setBounds(new Rectangle(40, 50, 225, 150));
 		scrollPaneEvents.setBounds(new Rectangle(25, 44, 346, 116));
@@ -86,6 +92,16 @@ private static final long serialVersionUID = 1L;
 				jButtonClose_actionPerformed(e);
 			}
 		});
+		
+		jComboBoxEvents.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelQuestions.removeAllElements();
+				domain.Event event = ((domain.Event) jComboBoxEvents.getSelectedItem());
+				Collection questions = new Vector<Question>(event.getQuestions());
+				modelQuestions.addAll(questions);
+				jComboBoxQuestion.repaint();
+			}
+		});
 
 		jLabelMsg.setBounds(new Rectangle(275, 182, 305, 20));
 		jLabelMsg.setForeground(Color.red);
@@ -99,11 +115,11 @@ private static final long serialVersionUID = 1L;
 
 		this.getContentPane().add(jButtonClose, null);
 		this.getContentPane().add(jButtonCreate, null);
-		this.getContentPane().add(jTextFieldQuery, null);
-		this.getContentPane().add(jLabelQuery, null);
-		this.getContentPane().add(jTextFieldPrice, null);
+		this.getContentPane().add(jTextFieldName, null);
+		this.getContentPane().add(jLabelName, null);
+		this.getContentPane().add(jTextFieldmultiplier, null);
 
-		this.getContentPane().add(jLabelMinBet, null);
+		this.getContentPane().add(jLabelMultiplayer, null);
 		this.getContentPane().add(jLabelListOfEvents, null);
 		this.getContentPane().add(jComboBoxEvents, null);
 
@@ -120,15 +136,12 @@ private static final long serialVersionUID = 1L;
 		jLabelEventDate.setBounds(40, 16, 140, 25);
 		getContentPane().add(jLabelEventDate);
 		
-		btnBack = new JButton("\u2190");
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CreateQuestionGUI.setVisible(false);;
-			}
-		});
-		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
-		btnBack.setBounds(10, 275, 69, 36);
-		this.getContentPane().add(btnBack);
+		
+		
+		
+		JLabel lblQuestion = new JLabel("Questions");
+		lblQuestion.setBounds(289, 75, 250, 14);
+		getContentPane().add(lblQuestion);
 
 		
 		// Code for JCalendar
@@ -249,38 +262,38 @@ public static void paintDaysWithEvents(JCalendar jCalendar,Vector<Date> datesWit
 	 	
 	}
 	
+
+	
 	 
 	private void jButtonCreate_actionPerformed(ActionEvent e) {
-		domain.Event event = ((domain.Event) jComboBoxEvents.getSelectedItem());
+		domain.Question question = ((domain.Question) jComboBoxQuestion.getSelectedItem());
 
 		try {
 			jLabelError.setText("");
 			jLabelMsg.setText("");
 
 			// Displays an exception if the query field is empty
-			String inputQuery = jTextFieldQuery.getText();
+			String inputForecastName = jTextFieldName.getText();
 
-			if (inputQuery.length() > 0) {
+			if (inputForecastName.length() > 0) {
 
 				// It could be to trigger an exception if the introduced string is not a number
-				float inputPrice = Float.parseFloat(jTextFieldPrice.getText());
+				float multiplier = Float.parseFloat(jTextFieldmultiplier.getText());
 
-				if (inputPrice <= 0)
+				if (multiplier <= 0)
 					jLabelError.setText(ResourceBundle.getBundle("Etiquetas").getString("ErrorNumber"));
 				else {
 
 					// Obtain the business logic from a StartWindow class (local or remote)
 					BLFacade facade = MainGUI.getBusinessLogic();
-
-					facade.createQuestion(event, inputQuery, inputPrice);
+					System.out.println(inputForecastName);
+					System.out.println(multiplier);
+					facade.createForecast(inputForecastName, multiplier, question);
 
 					jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryCreated"));
 				}
 			} else
 				jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("ErrorQuery"));
-		} catch (EventFinished e1) {
-			jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("ErrorEventHasFinished") + ": "
-					+ event.getDescription());
 		} catch (QuestionAlreadyExist e1) {
 			jLabelMsg.setText(ResourceBundle.getBundle("Etiquetas").getString("ErrorQueryAlreadyExist"));
 		} catch (java.lang.NumberFormatException e1) {

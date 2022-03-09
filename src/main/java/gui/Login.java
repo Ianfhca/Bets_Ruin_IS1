@@ -8,10 +8,12 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
 import businessLogic.BLFacade;
+import com.sun.tools.javac.Main;
 import domain.User;
 
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
+import java.awt.Rectangle;
 
 
 public class Login extends JFrame {
@@ -81,16 +83,15 @@ public class Login extends JFrame {
 		panelPrincipal.add(Label_Username);
 
 		btnLogin = new JButton("LOG IN");
+		
 		btnLogin.setFont(new Font("Rockwell", Font.PLAIN, 17));
 		btnLogin.setBounds(360, 310, 113, 36);
 		panelPrincipal.add(btnLogin);
 		
-
 		userNameField = new JTextField();
 		userNameField.setBounds(88, 121, 340, 36);
 		userNameField.setColumns(10);
 		panelPrincipal.add(userNameField);
-
 		btnBack = new JButton("\u2190");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
