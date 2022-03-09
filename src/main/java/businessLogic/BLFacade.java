@@ -36,9 +36,6 @@ public interface BLFacade  {
 	 */
 	@WebMethod Question createQuestion(Event event, String question, float betMinimum) throws EventFinished, QuestionAlreadyExist;
 	
-	public Event createEvent(String des, Date eveD) throws EventAlreadyExist;
-	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist;
-	
 	/**
 	 * This method retrieves the events of a given date 
 	 * 
