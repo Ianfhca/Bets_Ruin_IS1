@@ -151,6 +151,7 @@ public class Register extends JFrame{
 				try {
 					
 						facade.registerUser(userNameField.getText(), new String(passwordField.getPassword()));
+						registro.setVisible(false);
 					} catch (IllegalArgumentException e1) {
 						// TODO Auto-generated catch block
 						ErrorPanel.setText(e1.getMessage());

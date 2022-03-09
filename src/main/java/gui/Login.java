@@ -22,7 +22,9 @@ public class Login extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private User user;
+	
+	private User user = null;
+	
 	private JPasswordField passwordField;
 	private JTextField userNameField;
 
@@ -38,7 +40,7 @@ public class Login extends JFrame {
 	//Etiquetas
 	private JLabel lblLOGIN, Label_Password, Label_Username;
 
-	public Login() {
+	public Login(MainGUI main) {
 		JFrame login = this;
 		
 		BLFacade facade = MainGUI.getBusinessLogic();
@@ -116,24 +118,22 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ErrorPanel.setText("");
 				try {
-
 					user = facade.Login(userNameField.getText(), new String(passwordField.getPassword()));
 					System.out.println("Logeado correctamente");
+					setUser(main, user);
+					main.setVisible();
+					login.setVisible(false);
 				} catch (IllegalArgumentException e1) {
 					// TODO Auto-generated catch block
 					ErrorPanel.setText(e1.getMessage());
 				}catch(Exception e1) {
 					ErrorPanel.setText(e1.getMessage());
 				}
-
-
-
 			}
 		});
 	}
-
-	public boolean isAdmin() {
-		if (user.isAdmin()) return true;
-		return false;
+	
+	public void setUser(MainGUI main, User user) {
+		main.setUser(user);
 	}
 }
