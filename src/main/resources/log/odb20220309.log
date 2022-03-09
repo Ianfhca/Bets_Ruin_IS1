@@ -2736,3 +2736,436 @@ New type java.util.ArrayList<java.lang.Object>
 [2022-03-09 19:29:25 #24 type.registry] 
 New type java.util.ArrayList<domain.Permission.Permission>
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-09 19:38:36 #1 store] 
+Database 'D:\Aplicaciones\Eclipse\Repositorios De Trabajo\21-22\Bets-21\src\main\resources\bets.temp' is opened by 15924@Portatil
+
+[2022-03-09 19:38:36 #2 type.registry] 
+New type domain.Question
+
+[2022-03-09 19:38:36 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-09 19:38:36 #4 type.registry] 
+New type domain.Event
+
+[2022-03-09 19:38:36 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-09 19:38:36 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-09 19:38:36 #7 type.registry] 
+New type domain.User
+
+[2022-03-09 19:38:36 #8 type] 
+Type domain.User is not enhanced.
+
+[2022-03-09 19:38:36 #9 type.registry] 
+New type domain.ValueObjects.Role
+
+[2022-03-09 19:38:36 #10 type.registry] 
+New type domain.ValueObjects.UserPassword
+
+[2022-03-09 19:38:36 #11 type.registry] 
+New type domain.ValueObjects.UserName
+
+[2022-03-09 19:38:36 #12 type.registry] 
+New type domain.ValueObjects.ValueObjectUUID
+
+[2022-03-09 19:38:36 #13 type.registry] 
+New type domain.ValueObjects.UserId
+
+[2022-03-09 19:38:36 #14 type] 
+Type domain.ValueObjects.Role is not enhanced.
+
+[2022-03-09 19:38:36 #15 type.registry] 
+New type domain.Permission.Permission
+
+[2022-03-09 19:38:36 #16 type.registry] 
+New type domain.ValueObjects.Role$RoleEnum
+
+[2022-03-09 19:38:36 #17 type] 
+Type domain.ValueObjects.UserPassword is not enhanced.
+
+[2022-03-09 19:38:36 #18 type] 
+Type domain.ValueObjects.UserName is not enhanced.
+
+[2022-03-09 19:38:36 #19 type] 
+Type domain.ValueObjects.ValueObjectUUID is not enhanced.
+
+[2022-03-09 19:38:36 #20 type] 
+Type domain.ValueObjects.UserId is not enhanced.
+
+[2022-03-09 19:38:36 #21 type] 
+Type domain.Permission.Permission is not enhanced.
+
+[2022-03-09 19:38:36 #22 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-03-09 19:38:36 #23 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2022-03-09 19:38:36 #24 type.registry] 
+New type java.util.ArrayList<domain.Permission.Permission>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-09 19:56:33 #1 store] 
+Database 'D:\Aplicaciones\Eclipse\Repositorios De Trabajo\21-22\Bets-21\src\main\resources\bets.temp' is opened by 17652@Portatil
+
+[2022-03-09 19:56:34 #2 type.registry] 
+New type domain.Question
+
+[2022-03-09 19:56:34 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-09 19:56:34 #4 type.registry] 
+New type domain.Event
+
+[2022-03-09 19:56:34 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-09 19:56:34 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-09 19:56:34 #7 type.registry] 
+New type domain.User
+
+[2022-03-09 19:56:34 #8 type] 
+Type domain.User is not enhanced.
+
+[2022-03-09 19:56:34 #9 type.registry] 
+New type domain.ValueObjects.Role
+
+[2022-03-09 19:56:34 #10 type.registry] 
+New type domain.ValueObjects.UserPassword
+
+[2022-03-09 19:56:34 #11 type.registry] 
+New type domain.ValueObjects.UserName
+
+[2022-03-09 19:56:34 #12 type.registry] 
+New type domain.ValueObjects.ValueObjectUUID
+
+[2022-03-09 19:56:34 #13 type.registry] 
+New type domain.ValueObjects.UserId
+
+[2022-03-09 19:56:34 #14 type] 
+Type domain.ValueObjects.Role is not enhanced.
+
+[2022-03-09 19:56:34 #15 type.registry] 
+New type domain.Permission.Permission
+
+[2022-03-09 19:56:34 #16 type.registry] 
+New type domain.ValueObjects.Role$RoleEnum
+
+[2022-03-09 19:56:34 #17 type] 
+Type domain.ValueObjects.UserPassword is not enhanced.
+
+[2022-03-09 19:56:34 #18 type] 
+Type domain.ValueObjects.UserName is not enhanced.
+
+[2022-03-09 19:56:34 #19 type] 
+Type domain.ValueObjects.ValueObjectUUID is not enhanced.
+
+[2022-03-09 19:56:34 #20 type] 
+Type domain.ValueObjects.UserId is not enhanced.
+
+[2022-03-09 19:56:34 #21 type] 
+Type domain.Permission.Permission is not enhanced.
+
+[2022-03-09 19:56:34 #22 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-03-09 19:56:34 #23 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2022-03-09 19:56:34 #24 type.registry] 
+New type java.util.ArrayList<domain.Permission.Permission>
+
+[2022-03-09 19:58:50 #25 type.registry] 
+New type domain.Forecast
+
+[2022-03-09 19:58:50 #26 type] 
+Type domain.Forecast is not enhanced.
+
+[2022-03-09 19:58:50 #27 type.registry] 
+New type domain.ValueObjects.ForecastState
+
+[2022-03-09 19:58:50 #28 type.registry] 
+New type domain.Bet
+
+[2022-03-09 19:58:50 #29 type.registry] 
+New type domain.ValueObjects.FloatValueObject
+
+[2022-03-09 19:58:50 #30 type.registry] 
+New type domain.ValueObjects.ForecastMultiplier
+
+[2022-03-09 19:58:50 #31 type.registry] 
+New type domain.ValueObjects.StringValueObject
+
+[2022-03-09 19:58:50 #32 type.registry] 
+New type domain.ValueObjects.ForecastName
+
+[2022-03-09 19:58:50 #33 type.registry] 
+New type domain.ValueObjects.ForecastId
+
+[2022-03-09 19:58:50 #34 type] 
+Type domain.ValueObjects.ForecastState is not enhanced.
+
+[2022-03-09 19:58:50 #35 type.registry] 
+New type domain.ValueObjects.ForecastState$State
+
+[2022-03-09 19:58:50 #36 type] 
+Type domain.Bet is not enhanced.
+
+[2022-03-09 19:58:50 #37 type.registry] 
+New type domain.ValueObjects.BetState
+
+[2022-03-09 19:58:50 #38 type.registry] 
+New type domain.ValueObjects.BetAmount
+
+[2022-03-09 19:58:50 #39 type.registry] 
+New type domain.ValueObjects.BetId
+
+[2022-03-09 19:58:50 #40 type] 
+Type domain.ValueObjects.FloatValueObject is not enhanced.
+
+[2022-03-09 19:58:50 #41 type] 
+Type domain.ValueObjects.ForecastMultiplier is not enhanced.
+
+[2022-03-09 19:58:50 #42 type] 
+Type domain.ValueObjects.StringValueObject is not enhanced.
+
+[2022-03-09 19:58:50 #43 type] 
+Type domain.ValueObjects.ForecastName is not enhanced.
+
+[2022-03-09 19:58:50 #44 type] 
+Type domain.ValueObjects.ForecastId is not enhanced.
+
+[2022-03-09 19:58:50 #45 type.registry] 
+New type java.util.ArrayList<domain.Bet>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-09 20:03:54 #1 store] 
+Database 'D:\Aplicaciones\Eclipse\Repositorios De Trabajo\21-22\Bets-21\src\main\resources\bets.temp' is opened by 14376@Portatil
+
+[2022-03-09 20:03:54 #2 type.registry] 
+New type domain.Question
+
+[2022-03-09 20:03:54 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-09 20:03:54 #4 type.registry] 
+New type domain.Event
+
+[2022-03-09 20:03:54 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-09 20:03:54 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-09 20:03:54 #7 type.registry] 
+New type domain.User
+
+[2022-03-09 20:03:54 #8 type] 
+Type domain.User is not enhanced.
+
+[2022-03-09 20:03:54 #9 type.registry] 
+New type domain.ValueObjects.Role
+
+[2022-03-09 20:03:54 #10 type.registry] 
+New type domain.ValueObjects.UserPassword
+
+[2022-03-09 20:03:54 #11 type.registry] 
+New type domain.ValueObjects.UserName
+
+[2022-03-09 20:03:54 #12 type.registry] 
+New type domain.ValueObjects.ValueObjectUUID
+
+[2022-03-09 20:03:54 #13 type.registry] 
+New type domain.ValueObjects.UserId
+
+[2022-03-09 20:03:54 #14 type] 
+Type domain.ValueObjects.Role is not enhanced.
+
+[2022-03-09 20:03:54 #15 type.registry] 
+New type domain.Permission.Permission
+
+[2022-03-09 20:03:54 #16 type.registry] 
+New type domain.ValueObjects.Role$RoleEnum
+
+[2022-03-09 20:03:54 #17 type] 
+Type domain.ValueObjects.UserPassword is not enhanced.
+
+[2022-03-09 20:03:54 #18 type] 
+Type domain.ValueObjects.UserName is not enhanced.
+
+[2022-03-09 20:03:54 #19 type] 
+Type domain.ValueObjects.ValueObjectUUID is not enhanced.
+
+[2022-03-09 20:03:54 #20 type] 
+Type domain.ValueObjects.UserId is not enhanced.
+
+[2022-03-09 20:03:54 #21 type] 
+Type domain.Permission.Permission is not enhanced.
+
+[2022-03-09 20:03:54 #22 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-03-09 20:03:54 #23 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2022-03-09 20:03:54 #24 type.registry] 
+New type java.util.ArrayList<domain.Permission.Permission>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-09 20:06:27 #1 store] 
+Database 'D:\Aplicaciones\Eclipse\Repositorios De Trabajo\21-22\Bets-21\src\main\resources\bets.temp' is opened by 12440@Portatil
+
+[2022-03-09 20:06:27 #2 type.registry] 
+New type domain.Question
+
+[2022-03-09 20:06:27 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-09 20:06:27 #4 type.registry] 
+New type domain.Event
+
+[2022-03-09 20:06:27 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-09 20:06:27 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-09 20:06:27 #7 type.registry] 
+New type domain.User
+
+[2022-03-09 20:06:27 #8 type] 
+Type domain.User is not enhanced.
+
+[2022-03-09 20:06:27 #9 type.registry] 
+New type domain.ValueObjects.Role
+
+[2022-03-09 20:06:27 #10 type.registry] 
+New type domain.ValueObjects.UserPassword
+
+[2022-03-09 20:06:27 #11 type.registry] 
+New type domain.ValueObjects.UserName
+
+[2022-03-09 20:06:27 #12 type.registry] 
+New type domain.ValueObjects.ValueObjectUUID
+
+[2022-03-09 20:06:27 #13 type.registry] 
+New type domain.ValueObjects.UserId
+
+[2022-03-09 20:06:27 #14 type] 
+Type domain.ValueObjects.Role is not enhanced.
+
+[2022-03-09 20:06:27 #15 type.registry] 
+New type domain.Permission.Permission
+
+[2022-03-09 20:06:27 #16 type.registry] 
+New type domain.ValueObjects.Role$RoleEnum
+
+[2022-03-09 20:06:27 #17 type] 
+Type domain.ValueObjects.UserPassword is not enhanced.
+
+[2022-03-09 20:06:27 #18 type] 
+Type domain.ValueObjects.UserName is not enhanced.
+
+[2022-03-09 20:06:27 #19 type] 
+Type domain.ValueObjects.ValueObjectUUID is not enhanced.
+
+[2022-03-09 20:06:27 #20 type] 
+Type domain.ValueObjects.UserId is not enhanced.
+
+[2022-03-09 20:06:27 #21 type] 
+Type domain.Permission.Permission is not enhanced.
+
+[2022-03-09 20:06:27 #22 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-03-09 20:06:27 #23 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2022-03-09 20:06:27 #24 type.registry] 
+New type java.util.ArrayList<domain.Permission.Permission>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-09 20:09:12 #1 store] 
+Database 'D:\Aplicaciones\Eclipse\Repositorios De Trabajo\21-22\Bets-21\src\main\resources\bets.temp' is opened by 8796@Portatil
+
+[2022-03-09 20:09:12 #2 type.registry] 
+New type domain.Question
+
+[2022-03-09 20:09:12 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-09 20:09:12 #4 type.registry] 
+New type domain.Event
+
+[2022-03-09 20:09:12 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-09 20:09:12 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-09 20:09:12 #7 type.registry] 
+New type domain.User
+
+[2022-03-09 20:09:12 #8 type] 
+Type domain.User is not enhanced.
+
+[2022-03-09 20:09:12 #9 type.registry] 
+New type domain.ValueObjects.Role
+
+[2022-03-09 20:09:12 #10 type.registry] 
+New type domain.ValueObjects.UserPassword
+
+[2022-03-09 20:09:12 #11 type.registry] 
+New type domain.ValueObjects.UserName
+
+[2022-03-09 20:09:12 #12 type.registry] 
+New type domain.ValueObjects.ValueObjectUUID
+
+[2022-03-09 20:09:12 #13 type.registry] 
+New type domain.ValueObjects.UserId
+
+[2022-03-09 20:09:12 #14 type] 
+Type domain.ValueObjects.Role is not enhanced.
+
+[2022-03-09 20:09:12 #15 type.registry] 
+New type domain.Permission.Permission
+
+[2022-03-09 20:09:12 #16 type.registry] 
+New type domain.ValueObjects.Role$RoleEnum
+
+[2022-03-09 20:09:12 #17 type] 
+Type domain.ValueObjects.UserPassword is not enhanced.
+
+[2022-03-09 20:09:12 #18 type] 
+Type domain.ValueObjects.UserName is not enhanced.
+
+[2022-03-09 20:09:12 #19 type] 
+Type domain.ValueObjects.ValueObjectUUID is not enhanced.
+
+[2022-03-09 20:09:12 #20 type] 
+Type domain.ValueObjects.UserId is not enhanced.
+
+[2022-03-09 20:09:12 #21 type] 
+Type domain.Permission.Permission is not enhanced.
+
+[2022-03-09 20:09:12 #22 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-03-09 20:09:12 #23 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2022-03-09 20:09:12 #24 type.registry] 
+New type java.util.ArrayList<domain.Permission.Permission>
+

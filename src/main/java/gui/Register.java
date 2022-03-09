@@ -136,10 +136,12 @@ public class Register extends JFrame{
 				
 				Date date = newDate(Integer.parseInt(year.getText()),month.getSelectedIndex(),Integer.parseInt(day.getText()));
 				Date actualDate = new Date();
+				
 				if (!pass1.equals(pass2)){
 					ErrorPanel.setText("Error las contrase\u00F1as no coinciden");
 					System.out.println("Las contrae�as no coinciden");
 				}
+				
 				else if(date.compareTo(actualDate) > 0 || actualDate.getYear() - date.getYear() < 18) {
 					ErrorPanel.setText("Fecha invalida(ve a jugar al pokemon)");
 				}
@@ -159,7 +161,6 @@ public class Register extends JFrame{
 						ErrorPanel.setText(e1.getMessage());
 					}
 				}
-
 
 
 			}

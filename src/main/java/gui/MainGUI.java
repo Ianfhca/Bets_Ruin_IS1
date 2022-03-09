@@ -136,7 +136,7 @@ public class MainGUI extends JFrame {
 	private JButton getBoton2() {
 		if (jButtonCreateQuery == null) {
 			jButtonCreateQuery = new JButton();
-			jButtonCreateQuery.setBounds(0, 64, 245, 38);
+			jButtonCreateQuery.setBounds(10, 64, 235, 38);
 			jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("CreateQuery"));
 			jButtonCreateQuery.setVisible(false);
 			jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +180,7 @@ public class MainGUI extends JFrame {
 			jButtonCreateForecast = new JButton();
 			jButtonCreateForecast.setBounds(255, 113, 214, 38);
 			jButtonCreateForecast.setText(ResourceBundle.getBundle("Etiquetas").getString("QueryQueries"));
+			jButtonCreateForecast.setVisible(false);
 			jButtonCreateForecast.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					JFrame a = new CreateForecastGUI(new Vector<Event>());
@@ -304,6 +305,7 @@ public class MainGUI extends JFrame {
 			jButtonCreateQuery.setVisible(true);
 			btnCreateEvent.setVisible(true);
 			jButtonQueryQueries.setVisible(true);
+			jButtonCreateForecast.setVisible(true);
 		} else if (user != null) {
 			jButtonQueryQueries.setVisible(true);
 		}
