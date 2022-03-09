@@ -68,6 +68,7 @@ public class Register extends JFrame{
 
 
 	public Register() {
+		JFrame registro = this;
 		BLFacade facade = MainGUI.getBusinessLogic();
 		getContentPane().setLayout(null);
 
@@ -166,13 +167,11 @@ public class Register extends JFrame{
 		btnSingIn.setBounds(360, 520, 113, 36);
 		panelPrincipal.add(btnSingIn);
 
-
-
 		btnBack = new JButton("\u2190");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame a = new MainGUI();
-				a.setVisible(true);
+				registro.setVisible(false);
 			}
 		});
 		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
