@@ -62,4 +62,7 @@ public interface BLFacade  {
 	@WebMethod public void initializeBD();
 
 	
+	public Event createEvent(String des, Date eveD) throws EventAlreadyExist;
+	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist;
+	
 }

@@ -78,7 +78,7 @@ public class CreateEventGUI extends JFrame {
 		questionT.setColumns(10);
 		
 		description = new JLabel("Describe the event");
-		description.setBounds(10, 22, 98, 14);
+		description.setBounds(10, 22, 154, 14);
 		contentPane.add(description);
 		
 		descriptionT = new JTextField();
@@ -124,7 +124,8 @@ public class CreateEventGUI extends JFrame {
 					ERROR.setText("The minimum bet has to be higher that 0");
 					ERROR.setEnabled(true);
 				}
-				
+
+
 				if(questionT.getText().equals("") != false && minBetI.getText().equals("") != false) {
 					try {
 						facade.createEvent(descriptionT.getText(),jCalendar1.getDate(), questionT.getText(), Float.parseFloat(minBetI.getText()));
@@ -138,6 +139,7 @@ public class CreateEventGUI extends JFrame {
 						e1.printStackTrace();
 					}
 				}
+				
 			}
 		});
 		create.setBounds(231, 259, 126, 36);

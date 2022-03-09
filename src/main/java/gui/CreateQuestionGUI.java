@@ -19,7 +19,7 @@ import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
 public class CreateQuestionGUI extends JFrame {
-	private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 1L;
 
 	private JComboBox<Event> jComboBoxEvents = new JComboBox<Event>();
 	DefaultComboBoxModel<Event> modelEvents = new DefaultComboBoxModel<Event>();

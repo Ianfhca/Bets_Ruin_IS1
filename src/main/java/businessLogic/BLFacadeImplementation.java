@@ -12,6 +12,7 @@ import dataAccess.DataAccess;
 import domain.Question;
 import domain.User;
 import domain.Event;
+import exceptions.EventAlreadyExist;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
@@ -154,5 +155,32 @@ public class BLFacadeImplementation  implements BLFacade {
 	    if(!user.getPassword().value().equals(password))
 	    	throw new Exception("The password is wrong");
 	}
+	
+	
+	public Event createEvent(String des, Date eveD) throws EventAlreadyExist{
+		Event newEvent = null;
+		dbManager.open(false);
+		newEvent= dbManager.createEvent(des, eveD);
+		dbManager.close();
+		return newEvent;
+		
+		
+		
+		
+	}
+	
+	public Event createEvent(String des, Date eveD, String ques, float minimum ) throws EventAlreadyExist,EventFinished, QuestionAlreadyExist{
+		Event newEvent = null;
+		dbManager.open(false);
+		newEvent= dbManager.createEvent(des, eveD, ques, minimum);
+		dbManager.close();
+		return newEvent;
+		
+		
+		
+	}
+	
+	
+	
 
 }
