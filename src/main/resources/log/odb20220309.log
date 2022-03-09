@@ -72,3 +72,26 @@ New type java.util.ArrayList<java.lang.Object>
 [2022-03-09 16:08:33 #24 type.registry] 
 New type java.util.ArrayList<domain.Permission.Permission>
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-09 16:29:22 #1 store] 
+Database 'D:\Aplicaciones\Eclipse\Repositorios De Trabajo\21-22\Bets-21\src\main\resources\bets.temp' is opened by 2496@Portatil
+
+[2022-03-09 16:29:22 #2 type.registry] 
+New type domain.Question
+
+[2022-03-09 16:29:22 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-09 16:29:22 #4 type.registry] 
+New type domain.Event
+
+[2022-03-09 16:29:22 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-09 16:29:22 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-09 16:29:22 #7 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
