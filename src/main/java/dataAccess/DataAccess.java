@@ -12,6 +12,7 @@ import java.util.Vector;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -20,6 +21,8 @@ import configuration.UtilDate;
 import domain.Event;
 import domain.Forecast;
 import domain.Question;
+import domain.User;
+import domain.ValueObjects.UserName;
 import exceptions.EventAlreadyExist;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
@@ -288,8 +291,6 @@ public boolean existQuestion(Event event, String question) {
 		db.close();
 		System.out.println("DataBase closed");
 	}
-<<<<<<< Updated upstream
-=======
 
 	// Nuevos Metodos
 
@@ -327,6 +328,5 @@ public boolean existQuestion(Event event, String question) {
     	return forecast;
     }
     
->>>>>>> Stashed changes
 	
 }

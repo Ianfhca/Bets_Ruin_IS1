@@ -11,12 +11,12 @@ import javax.jws.WebService;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.Question;
+import domain.User;
+import domain.ValueObjects.UserName;
+import domain.ValueObjects.UserPassword;
 import domain.Event;
-<<<<<<< Updated upstream
 import exceptions.EventAlreadyExist;
-=======
 import domain.Forecast;
->>>>>>> Stashed changes
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
@@ -183,6 +183,28 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		if(forecast==null)
 			throw new Exception("The Forecast cannot be created");
+		
+	}
+
+	@Override
+	public User registerUser(String userName, String password) throws Exception {
+		User newUser = null;
+    	dbManager.open(false);
+    	newUser = dbManager.registerUser(userName , password);
+    	dbManager.close();
+    	System.out.println("Te has registrado como: "+newUser.getName().value());
+    	return newUser;
+	}
+
+	@Override
+	public void Login(String userName, String password) throws Exception {
+		dbManager.open(false);
+		User user = dbManager.getUserByUserName(userName);
+		dbManager.close();
+		if(user==null) 
+			throw new Exception("The User is not registered, signUp please");
+	    if(!user.getPassword().value().equals(password))
+	    	throw new Exception("The password is wrong");
 		
 	}
 

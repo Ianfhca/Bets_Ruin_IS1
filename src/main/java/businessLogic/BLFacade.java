@@ -9,6 +9,7 @@ import java.util.Date;
 
 //import domain.Booking;
 import domain.Question;
+import domain.User;
 import domain.Event;
 import exceptions.EventAlreadyExist;
 import exceptions.EventFinished;
@@ -62,7 +63,7 @@ public interface BLFacade  {
 	@WebMethod public void initializeBD();
 
 	//Nuevos M�todos
-	@WebMethod public User registerUser(String UserName, String Password) throws Exception;
+	@WebMethod public User registerUser(String userName, String password) throws Exception;
 	
 	public void Login(String userName, String Password) throws Exception;
 	public void createForecast(String name, float multiplier, Question question) throws Exception;

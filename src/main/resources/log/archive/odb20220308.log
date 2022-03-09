@@ -2743,3 +2743,77 @@ New type java.util.ArrayList<java.lang.Object>
 [2022-03-08 22:26:08 #24 type.registry] 
 New type java.util.ArrayList<domain.Permission.Permission>
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-08 22:33:58 #1 store] 
+Database 'C:\Users\xiaom\Documents\GitHub\IS1\src\main\resources\bets.temp' is opened by 17120@DESKTOP-VRMBIG8
+
+[2022-03-08 22:33:58 #2 type.registry] 
+New type domain.Question
+
+[2022-03-08 22:33:58 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-08 22:33:58 #4 type.registry] 
+New type domain.Event
+
+[2022-03-08 22:33:58 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-08 22:33:58 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-08 22:33:58 #7 type.registry] 
+New type domain.User
+
+[2022-03-08 22:33:58 #8 type] 
+Type domain.User is not enhanced.
+
+[2022-03-08 22:33:58 #9 type.registry] 
+New type domain.ValueObjects.Role
+
+[2022-03-08 22:33:58 #10 type.registry] 
+New type domain.ValueObjects.UserPassword
+
+[2022-03-08 22:33:58 #11 type.registry] 
+New type domain.ValueObjects.UserName
+
+[2022-03-08 22:33:58 #12 type.registry] 
+New type domain.ValueObjects.ValueObjectUUID
+
+[2022-03-08 22:33:58 #13 type.registry] 
+New type domain.ValueObjects.UserId
+
+[2022-03-08 22:33:58 #14 type] 
+Type domain.ValueObjects.Role is not enhanced.
+
+[2022-03-08 22:33:58 #15 type.registry] 
+New type domain.Permission.Permission
+
+[2022-03-08 22:33:58 #16 type.registry] 
+New type domain.ValueObjects.Role$RoleEnum
+
+[2022-03-08 22:33:58 #17 type] 
+Type domain.ValueObjects.UserPassword is not enhanced.
+
+[2022-03-08 22:33:58 #18 type] 
+Type domain.ValueObjects.UserName is not enhanced.
+
+[2022-03-08 22:33:58 #19 type] 
+Type domain.ValueObjects.ValueObjectUUID is not enhanced.
+
+[2022-03-08 22:33:58 #20 type] 
+Type domain.ValueObjects.UserId is not enhanced.
+
+[2022-03-08 22:33:58 #21 type] 
+Type domain.Permission.Permission is not enhanced.
+
+[2022-03-08 22:33:58 #22 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-03-08 22:33:58 #23 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2022-03-08 22:33:58 #24 type.registry] 
+New type java.util.ArrayList<domain.Permission.Permission>
+

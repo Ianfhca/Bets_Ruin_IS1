@@ -6,8 +6,12 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
+
+import businessLogic.BLFacade;
+
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
+import java.awt.Rectangle;
 
 
 public class Login extends JFrame {
@@ -25,6 +29,7 @@ public class Login extends JFrame {
 	private JLabel lblLOGIN, Label_Password, Label_Username;
 	
 	public Login() {
+		BLFacade facade = MainGUI.getBusinessLogic();
 		setTitle("Login Box");
 		setBackground(SystemColor.controlShadow);
 		getContentPane().setBackground(new Color(255, 204, 255));
@@ -64,14 +69,15 @@ public class Login extends JFrame {
 		panelPrincipal.add(Label_Username);
 		
 		btnLogin = new JButton("LOG IN");
+		
 		btnLogin.setFont(new Font("Rockwell", Font.PLAIN, 17));
 		btnLogin.setBounds(360, 310, 113, 36);
 		panelPrincipal.add(btnLogin);
 		
-		textUser = new JTextField();
-		textUser.setBounds(88, 121, 340, 36);
-		textUser.setColumns(10);
-		panelPrincipal.add(textUser);
+		userNameField = new JTextField();
+		userNameField.setBounds(88, 121, 340, 36);
+		userNameField.setColumns(10);
+		panelPrincipal.add(userNameField);
 		
 		btnBack = new JButton("\u2190");
 		btnBack.addActionListener(new ActionListener() {
@@ -83,9 +89,31 @@ public class Login extends JFrame {
 		btnBack.setFont(new Font("Microsoft YaHei", Font.BOLD, 34));
 		btnBack.setBounds(10, 10, 84, 44);
 		panelPrincipal.add(btnBack);
+		
+		ErrorPanel = new JLabel();
+		ErrorPanel.setForeground(Color.RED);
+		ErrorPanel.setBounds(new Rectangle(175, 240, 305, 20));
+		ErrorPanel.setBounds(71, 272, 435, 40);
+		panelPrincipal.add(ErrorPanel);
 	
 		
-		this.setSize(550, 500);
+		this.setSize(556, 500);
+		
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ErrorPanel.setText("");
+				try {
+					
+					facade.Login(userNameField.getText(), new String(passwordField.getPassword()));
+					System.out.println("Logeado correctamente");
+				} catch (IllegalArgumentException e1) {
+					// TODO Auto-generated catch block
+					ErrorPanel.setText(e1.getMessage());
+				}catch(Exception e1) {
+					ErrorPanel.setText(e1.getMessage());
+				}
+			}
+		});
 	}
 
 	/**
@@ -93,6 +121,7 @@ public class Login extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPasswordField passwordField;
-	private JTextField textUser;
+	private JTextField userNameField;
+	private JLabel ErrorPanel;
 	
 }
