@@ -1,0 +1,23 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-03-09 13:20:13 #1 store] 
+Database 'C:\Users\xiaom\Documents\GitHub\IS1\src\main\resources\bets.temp' is opened by 10864@DESKTOP-VRMBIG8
+
+[2022-03-09 13:20:14 #2 type.registry] 
+New type domain.Question
+
+[2022-03-09 13:20:14 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-03-09 13:20:14 #4 type.registry] 
+New type domain.Event
+
+[2022-03-09 13:20:14 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-03-09 13:20:14 #6 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-03-09 13:20:14 #7 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
