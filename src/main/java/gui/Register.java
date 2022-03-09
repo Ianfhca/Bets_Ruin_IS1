@@ -218,7 +218,7 @@ public class Register extends JFrame{
 		panelPrincipal.add(lblDay);
 
 		day = new JTextField();
-		day.setText("xx");
+		//day.setText();
 		day.setColumns(10);
 		day.setBounds(388, 306, 67, 26);
 		panelPrincipal.add(day);
