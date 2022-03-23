@@ -98,7 +98,7 @@ public class CreateForecastGUI extends JFrame {
 				modelQuestions.removeAllElements();
 				domain.Event event = ((domain.Event) jComboBoxEvents.getSelectedItem());
 				Collection questions = new Vector<Question>(event.getQuestions());
-				modelQuestions.addAll(questions);
+				((List<Date>) modelQuestions).addAll(questions);
 				jComboBoxQuestion.repaint();
 			}
 		});
